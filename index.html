@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UPCH - Acidez y Basicidad: Teorías, Fortaleza, Factores y Funciones Orgánicas | Química Orgánica</title>
+<style>
+    :root {
+        --upch-gold: #D4AF37;
+        --upch-dark: #1a1a2e;
+        --upch-blue: #16213e;
+        --upch-light: #0f3460;
+        --accent: #e94560;
+        --text: #2c3e50;
+        --white: #ffffff;
+        --sand: #f4e9c1;
+        --shadow: rgba(0, 0, 0, 0.15);
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    /* ===== SANGRÍA DE VIÑETAS Y LISTAS ===== */
+    ul:not(.map-tree), ol {
+        padding-left: 2.4rem;
+        margin: 0.5rem 0 1rem;
+    }
+    ul:not(.map-tree) { list-style: none; }
+    ul:not(.map-tree) li, ol li { margin: 0.45rem 0; }
+
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); color: var(--text); line-height: 1.6; overflow-x: hidden; }
+    header { background: linear-gradient(135deg, var(--upch-dark) 0%, var(--upch-blue) 100%); color: var(--white); padding: 2rem; text-align: center; box-shadow: 0 6px 20px var(--shadow); position: relative; overflow: hidden; border-bottom: 5px solid var(--upch-gold); }
+    .logo-container { display: flex; align-items: center; justify-content: center; gap: 2rem; margin-bottom: 1rem; flex-wrap: wrap; }
+    .logo-upch { width: 120px; height: auto; background: var(--white); border-radius: 50%; padding: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.3); }
+    h1 { font-size: 2.5rem; margin-bottom: 0.5rem; text-shadow: 3px 3px 6px rgba(0,0,0,0.3); color: var(--upch-gold); }
+    .subtitle { font-size: 1.2rem; opacity: 0.95; font-weight: 300; }
+    .nav-container { background: var(--upch-blue); padding: 1rem; position: sticky; top: 0; z-index: 100; box-shadow: 0 4px 12px var(--shadow); }
+    .nav-buttons { display: flex; justify-content: center; flex-wrap: wrap; gap: 0.8rem; max-width: 1400px; margin: 0 auto; }
+    .nav-btn { background: var(--white); color: var(--upch-dark); border: none; padding: 0.8rem 1.5rem; border-radius: 25px; cursor: pointer; font-weight: 600; transition: all 0.3s ease; box-shadow: 0 3px 8px rgba(0,0,0,0.2); }
+    .nav-btn:hover, .nav-btn.active { background: var(--upch-gold); color: var(--upch-dark); transform: translateY(-3px); box-shadow: 0 5px 15px rgba(212,175,55,0.4); }
+    .container { max-width: 1400px; margin: 0 auto; padding: 2rem; }
+    .section { display: none; animation: fadeIn 0.5s ease; }
+    .section.active { display: block; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    .card { background: var(--white); border-radius: 16px; padding: 2rem; margin-bottom: 2rem; box-shadow: 0 8px 24px var(--shadow); border-left: 6px solid var(--upch-gold); transition: transform 0.3s ease; }
+    .card:hover { transform: translateY(-5px); }
+    h2 { color: var(--upch-blue); margin-bottom: 1.5rem; padding-bottom: 0.8rem; border-bottom: 3px solid var(--upch-gold); display: flex; align-items: center; gap: 0.8rem; font-size: 2rem; }
+    h3 { color: var(--upch-light); margin: 1.5rem 0 1rem; font-size: 1.5rem; }
+    .molecule-img { max-width: 100%; height: auto; border-radius: 12px; margin: 1rem 0; box-shadow: 0 4px 12px var(--shadow); }
+    .img-container { text-align: center; margin: 2rem 0; }
+    .calculator { background: linear-gradient(135deg, #fff9f5 0%, #fff0e8 100%); border: 3px solid var(--upch-gold); border-radius: 16px; padding: 2rem; margin: 2rem 0; }
+    .calc-title { color: var(--upch-blue); font-size: 1.6rem; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.8rem; }
+    .calc-input-group { margin: 1rem 0; }
+    .calc-input-group label { display: block; margin-bottom: 0.5rem; font-weight: 600; color: var(--upch-dark); }
+    .calc-input-group input, .calc-input-group select { width: 100%; padding: 0.8rem; border: 2px solid var(--sand); border-radius: 8px; font-size: 1rem; transition: border-color 0.3s; }
+    .calc-input-group input:focus, .calc-input-group select:focus { outline: none; border-color: var(--upch-gold); }
+    .calc-button { background: var(--upch-blue); color: var(--white); border: none; padding: 1rem 2rem; border-radius: 30px; font-size: 1.1rem; font-weight: 600; cursor: pointer; margin-top: 1rem; transition: all 0.3s ease; box-shadow: 0 4px 12px var(--shadow); }
+    .calc-button:hover { background: var(--upch-gold); color: var(--upch-dark); transform: translateY(-2px); }
+    .calc-result { background: var(--white); border-left: 5px solid var(--accent); padding: 1.5rem; margin-top: 1.5rem; border-radius: 8px; font-size: 1.1rem; display: none; }
+    .calc-result.show { display: block; animation: slideIn 0.5s ease; }
+    @keyframes slideIn { from { opacity: 0; transform: translateX(-20px); } to { opacity: 1; transform: translateX(0); } }
+    table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; background: var(--white); border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px var(--shadow); }
+    th { background: linear-gradient(135deg, var(--upch-blue) 0%, var(--upch-light) 100%); color: var(--white); padding: 1.2rem; text-align: left; font-weight: 600; }
+    td { padding: 1rem 1.2rem; border-bottom: 1px solid #eee; transition: background 0.3s; }
+    tr:hover td { background: #f8fff0; }
+    .info-box { background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%); border-left: 5px solid #2196f3; padding: 1.5rem; margin: 1.5rem 0; border-radius: 0 12px 12px 0; }
+    .tip-box { background: linear-gradient(135deg, #fff3cd 0%, #ffe69c 100%); border-left: 5px solid #ffc107; padding: 1.5rem; margin: 1.5rem 0; border-radius: 0 12px 12px 0; }
+    .bio-box { background: linear-gradient(135deg, #d1ecf1 0%, #a8dadc 100%); border-left: 5px solid #17a2b8; padding: 1.5rem; margin: 1.5rem 0; border-radius: 0 12px 12px 0; }
+    .pharma-box { background: linear-gradient(135deg, #f8d7da 0%, #f1aeb5 100%); border-left: 5px solid #dc3545; padding: 1.5rem; margin: 1.5rem 0; border-radius: 0 12px 12px 0; }
+    .problem-box { background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%); border-left: 5px solid #28a745; padding: 1.5rem; margin: 1.5rem 0; border-radius: 0 12px 12px 0; }
+    details.solution { margin-top: 1rem; background: #f8f9fa; border: 2px solid var(--upch-light); border-radius: 10px; padding: 0.8rem 1.2rem; }
+    details.solution summary { cursor: pointer; font-weight: 700; color: var(--upch-light); }
+    details.solution[open] summary { margin-bottom: 0.8rem; border-bottom: 1px dashed var(--upch-light); padding-bottom: .4rem; }
+    .mnemonic-card { background: linear-gradient(135deg, #fff5f5 0%, #ffe0e0 100%); border: 3px solid var(--accent); border-radius: 12px; padding: 1.5rem; margin: 1rem 0; position: relative; overflow: hidden; }
+    .mnemonic-title { color: var(--accent); font-weight: 700; margin-bottom: 0.8rem; font-size: 1.2rem; }
+    .glossary-term { background: var(--white); border: 2px solid var(--upch-gold); border-radius: 8px; padding: 1rem; margin: 0.8rem 0; cursor: pointer; transition: all 0.3s; }
+    .glossary-term:hover { background: #fff9e6; transform: translateX(5px); }
+    .glossary-definition { display: none; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--upch-gold); }
+    .glossary-definition.show { display: block; animation: fadeIn 0.3s ease; }
+    .error-card { background: linear-gradient(135deg, #ffe6e6 0%, #ffb3b3 100%); border-left: 5px solid #dc3545; padding: 1.5rem; margin: 1rem 0; border-radius: 0 12px 12px 0; }
+    .error-title { color: #dc3545; font-weight: 700; margin-bottom: 0.5rem; }
+    .correction { background: #d4edda; border-left: 3px solid #28a745; padding: 1rem; margin-top: 1rem; border-radius: 0 8px 8px 0; }
+    .quiz-container { background: linear-gradient(135deg, var(--upch-blue) 0%, var(--upch-light) 100%); color: var(--white); border-radius: 16px; padding: 2rem; margin: 2rem 0; }
+    .quiz-question { font-size: 1.4rem; margin-bottom: 1.5rem; font-weight: 600; }
+    .quiz-options { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; }
+    .quiz-option { background: var(--white); color: var(--text); border: 3px solid transparent; padding: 1.2rem; border-radius: 10px; cursor: pointer; transition: all 0.3s ease; font-weight: 500; }
+    .quiz-option:hover:not(:disabled) { border-color: var(--upch-gold); transform: translateY(-3px); }
+    .quiz-option:disabled { cursor: not-allowed; opacity: 0.95; }
+    .quiz-option.correct { background: #4caf50; color: white; border-color: #2e7d32; }
+    .quiz-option.incorrect { background: #f44336; color: white; border-color: #c62828; }
+    .quiz-progress { max-width: 720px; margin: 0 auto 1rem; }
+    .quiz-progress-bar-bg { height: 10px; background: #e0e0e0; border-radius: 5px; overflow: hidden; }
+    .quiz-progress-bar { height: 100%; width: 0; background: linear-gradient(90deg, var(--upch-gold), var(--accent)); transition: width 0.4s; }
+    .quiz-stats { display: flex; gap: 0.8rem; flex-wrap: wrap; justify-content: center; margin: 1rem 0; }
+    .quiz-stat { padding: 0.6rem 1.2rem; border-radius: 20px; font-weight: 700; color: #fff; font-size: 0.95rem; background: var(--upch-light); }
+    .footer { background: var(--upch-dark); color: var(--white); text-align: center; padding: 2.5rem; margin-top: 3rem; border-top: 5px solid var(--upch-gold); }
+    .table-responsive { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 1.5rem 0; border-radius: 12px; box-shadow: 0 4px 12px var(--shadow); }
+    .table-responsive table { min-width: 600px; width: 100%; margin: 0; }
+    .tabs { display: flex; gap: 0.5rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
+    .tab { background: var(--sand); border: none; padding: 0.8rem 1.5rem; border-radius: 8px; cursor: pointer; font-weight: 600; transition: all 0.3s; }
+    .tab.active { background: var(--upch-gold); color: var(--upch-dark); }
+    .tab-content { display: none; }
+    .tab-content.active { display: block; animation: fadeIn 0.5s ease; }
+    .fc-stats { display: flex; gap: 0.8rem; flex-wrap: wrap; justify-content: center; margin: 1rem 0; }
+    .fc-stat { padding: 0.6rem 1.2rem; border-radius: 20px; font-weight: 700; color: #fff; font-size: 0.95rem; }
+    .fc-stat.good { background: #28a745; } .fc-stat.bad { background: #dc3545; } .fc-stat.pending { background: #6c757d; } .fc-stat.total { background: var(--upch-light); }
+    .fc-progress { height: 10px; background: #e0e0e0; border-radius: 5px; overflow: hidden; max-width: 720px; margin: 0 auto 1.5rem; }
+    .fc-progress-bar { height: 100%; width: 0; background: linear-gradient(90deg, var(--upch-gold), var(--accent)); transition: width 0.4s; }
+    .flashcard-scene { perspective: 1400px; max-width: 720px; height: 320px; margin: 0 auto 1.5rem; }
+    .flashcard { position: relative; width: 100%; height: 100%; transform-style: preserve-3d; transition: transform 0.6s; cursor: pointer; }
+    .flashcard.flipped { transform: rotateY(180deg); }
+    .fc-face { position: absolute; inset: 0; backface-visibility: hidden; -webkit-backface-visibility: hidden; border-radius: 16px; padding: 2rem; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; overflow: auto; box-shadow: 0 8px 24px var(--shadow); font-size: 1.15rem; }
+    .fc-front { background: linear-gradient(135deg, var(--upch-blue), var(--upch-light)); color: #fff; border: 3px solid var(--upch-gold); }
+    .fc-back { background: linear-gradient(135deg, #fff9e6, var(--sand)); color: var(--text); border: 3px solid var(--upch-gold); transform: rotateY(180deg); }
+    .fc-label { font-size: 0.85rem; letter-spacing: 2px; font-weight: 800; opacity: 0.8; margin-bottom: 1rem; }
+    .fc-hint { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; font-style: italic; }
+    .fc-controls { display: flex; gap: 1rem; justify-content: center; margin-bottom: 1rem; flex-wrap: wrap; }
+    .fc-btn { border: none; padding: 0.9rem 2rem; border-radius: 30px; font-size: 1.05rem; font-weight: 700; cursor: pointer; transition: all 0.3s; color: #fff; }
+    .fc-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+    .fc-btn.good { background: #28a745; } .fc-btn.bad { background: #dc3545; }
+    .fc-btn:not(:disabled):hover { transform: translateY(-3px); }
+    .fc-link { background: none; border: none; color: #6c757d; text-decoration: underline; cursor: pointer; font-size: 0.85rem; margin-top: 1rem; }
+
+    /* ===== MAPA CONCEPTUAL ===== */
+    .map-container { overflow-x: auto; padding: 1rem 0; }
+    .map-tree, .map-tree ul { list-style: none; margin: 0; padding-left: 0; }
+    .map-tree ul { display: none; padding-left: 1.6rem; margin: 0.6rem 0 0; border-left: 3px solid var(--upch-gold); }
+    .map-tree li.open > ul { display: block; animation: fadeIn 0.4s ease; }
+    .map-tree li { margin: 0.4rem 0; }
+    .map-node { display: inline-block; background: var(--upch-blue); color: #fff; padding: 0.6rem 1.1rem; border-radius: 10px; cursor: pointer; font-weight: 600; transition: all 0.3s; }
+    .map-node:hover { background: var(--upch-gold); color: var(--upch-dark); transform: translateX(4px); }
+    .map-node.root { background: var(--accent); font-size: 1.15rem; }
+    .map-node.branch { background: var(--upch-light); }
+    .map-leaf { display: inline-block; background: var(--sand); color: var(--text); padding: 0.45rem 0.9rem; border-radius: 8px; font-size: 0.95rem; border: 2px solid var(--upch-gold); }
+    li.has-children > .map-node::before { content: '▶ '; font-size: 0.8em; }
+    li.has-children.open > .map-node::before { content: '▼ '; font-size: 0.8em; }
+
+    /* ===== BARRAS pKa ===== */
+    .bar-wrap { display: flex; align-items: flex-end; gap: 1rem; justify-content: center; flex-wrap: wrap; margin: 1.5rem 0; }
+    .bar-col { display: flex; flex-direction: column; align-items: center; }
+    .bar { width: 58px; background: linear-gradient(180deg, var(--upch-gold), var(--accent)); border-radius: 8px 8px 0 0; box-shadow: 0 3px 8px var(--shadow); }
+    .bar-label { text-align: center; font-size: 0.8rem; margin-top: 0.4rem; font-weight: 600; color: var(--upch-dark); }
+
+    @media (max-width: 768px) {
+        h1 { font-size: 1.8rem; } h2 { font-size: 1.5rem; } h3 { font-size: 1.2rem; }
+        .logo-container { flex-direction: column; gap: 1rem; } .logo-upch { width: 80px; }
+        .container { padding: 1rem; } .card { padding: 1.5rem; }
+        .nav-buttons { gap: 0.5rem; } .nav-btn { padding: 0.6rem 1rem; font-size: 0.85rem; }
+        .quiz-options { grid-template-columns: 1fr; }
+        .tabs { flex-wrap: nowrap; overflow-x: auto; -webkit-overflow-scrolling: touch; padding-bottom: 0.5rem; }
+        .tab { flex-shrink: 0; padding: 0.6rem 1rem; font-size: 0.9rem; }
+        .flashcard-scene { height: 360px; } .fc-face { font-size: 1rem; padding: 1rem; }
+    }
+    @media (max-width: 480px) {
+        h1 { font-size: 1.4rem; } .subtitle { font-size: 0.9rem; } header { padding: 1rem; }
+        .card { padding: 1rem; } .nav-btn { padding: 0.5rem 0.7rem; font-size: 0.8rem; }
+    }
+</style>
+</head>
+<body>
+<header>
+    <div class="logo-container">
+        <img src="logo-upch.png" alt="Logo UPCH" class="logo-upch">
+        <div>
+            <h1>Universidad Peruana Cayetano Heredia</h1>
+            <p class="subtitle">Facultad de Medicina • Química Orgánica</p>
+            <p class="subtitle">Capítulo 5: Acidez y Basicidad</p>
+        </div>
+    </div>
+</header>
+
+<nav class="nav-container">
+    <div class="nav-buttons">
+        <button class="nav-btn active" onclick="showSection('inicio', this)">🏠 Inicio</button>
+        <button class="nav-btn" onclick="showSection('conceptos', this)">📚 Conceptos</button>
+        <button class="nav-btn" onclick="showSection('mapa', this)">🗺️ Mapa Conceptual</button>
+        <button class="nav-btn" onclick="showSection('flashcards', this)">🃏 Flashcards</button>
+        <button class="nav-btn" onclick="showSection('calculadoras', this)">🧮 Herramientas</button>
+        <button class="nav-btn" onclick="showSection('aplicaciones', this)">🏥 Aplicaciones</button>
+        <button class="nav-btn" onclick="showSection('mnemotecnias', this)">🧠 Nemotecnias</button>
+        <button class="nav-btn" onclick="showSection('glosario', this)">📖 Glosario</button>
+        <button class="nav-btn" onclick="showSection('errores', this)">⚠️ Errores Comunes</button>
+        <button class="nav-btn" onclick="showSection('bibliografia', this)">📚 Bibliografía</button>
+        <button class="nav-btn" onclick="showSection('quiz', this)">🎯 Quiz</button>
+    </div>
+</nav>
+
+<div class="container">
+
+<!-- ============ INICIO ============ -->
+<section id="inicio" class="section active">
+    <div class="card">
+        <h2>🎯 Objetivos de la Sesión</h2>
+        <div class="info-box">
+            <ul style="font-size: 1.1rem; line-height: 2;">
+                <li>✓ Identificar los conceptos de acidez y basicidad según Brönsted‑Lowry y Lewis</li>
+                <li>✓ Determinar la fortaleza de los ácidos y bases (Ka, Kb, pKa, pKb)</li>
+                <li>✓ Identificar los factores que determinan la acidez y basicidad de los compuestos orgánicos</li>
+                <li>✓ Comparar las propiedades de acidez y basicidad de las principales funciones orgánicas</li>
+            </ul>
+        </div>
+        <h3>🩺 Importancia para la Medicina</h3>
+        <div class="bio-box">
+            <div><strong>¿Por qué un futuro médico debe dominar la acidez y basicidad?</strong>
+                <ul style="font-size: 1rem; margin-top: 1rem;">
+                    <li>• La <strong>absorción de fármacos</strong> depende de su estado de ionización: la forma <strong>no ionizada</strong> (neutra) atraviesa membranas; la <strong>ionizada</strong> es soluble en sangre. El pKa del fármaco y el pH del medio lo determinan (aspirina en el estómago).</li>
+                    <li>• Las <strong>aminas (bases)</strong> se administran como <strong>sales (clorhidratos)</strong> para ser solubles en inyectables: se protonan en medio ácido formando el ion amonio.</li>
+                    <li>• El <strong>equilibrio ácido‑base de la sangre</strong> (sistema H₂CO₃/HCO⁻, pKa ≈ 6.1) explica la acidosis y alcalosis metabólicas y respiratorias.</li>
+                    <li>• El <strong>fenol</strong> (pKa ≈ 10), primer antiséptico de la historia (Lister), es cáustico: su acidez explica su reactividad y toxicidad cutánea.</li>
+                    <li>• En el <strong>riñón</strong>, el pH urinario modifica la excreción de fármacos (“atrapamiento iónico”): base del tratamiento de intoxicaciones.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="tip-box"><strong>📌 Ruta de estudio sugerida:</strong> Conceptos → Mapa conceptual → Flashcards → Herramientas → Aplicaciones → Quiz (10 preguntas aleatorias de una base de 30; cada ciclo recarga preguntas nuevas).</div>
+        <div class="pharma-box"><strong>Regla de oro del capítulo:</strong> cuanto <strong>más bajo es el pKa</strong>, más fuerte es el ácido y <strong>más débil su base conjugada</strong> (Ka·Kb = Kw). Podio de acidez orgánica: <strong>ácidos carboxílicos (pKa 3–5) &gt; fenoles (≈10) &gt; alcoholes (15–18)</strong>.</div>
+    </div>
+</section>
+
+<!-- ============ CONCEPTOS ============ -->
+<section id="conceptos" class="section">
+    <div class="card">
+        <h2>📚 Conceptos</h2>
+        <div id="conceptos-tabs" class="tab-group">
+            <div class="tabs">
+                <button class="tab active" onclick="showTab('conceptos-tabs','sub-bronsted', this)">⚖️ Brönsted‑Lowry</button>
+                <button class="tab" onclick="showTab('conceptos-tabs','sub-lewis', this)">🧲 Lewis</button>
+                <button class="tab" onclick="showTab('conceptos-tabs','sub-fuerza', this)">💪 Fortaleza y pKa</button>
+                <button class="tab" onclick="showTab('conceptos-tabs','sub-factores', this)">🔬 Factores de Acidez</button>
+                <button class="tab" onclick="showTab('conceptos-tabs','sub-funciones', this)">🧪 Funciones Orgánicas</button>
+                <button class="tab" onclick="showTab('conceptos-tabs','sub-aminas', this)">🧬 Basicidad de Aminas</button>
+            </div>
+
+            <!-- SUB: BRÖNSTED -->
+            <div id="sub-bronsted" class="tab-content active">
+                <h3>⚖️ Teoría ácido‑base de Brönsted‑Lowry</h3>
+                <div class="info-box"><strong>ÁCIDO:</strong> “Sustancia que en disolución <strong>cede H⁺</strong>”. <strong>BASE:</strong> “Sustancia que en disolución <strong>acepta H⁺</strong>”. Siempre que una sustancia se comporta como ácido, hay otra que se comporta como base.</div>
+                <div class="img-container">
+                    <img src="bronsted-lowry.png" alt="Transferencia de protón HA + B en equilibrio con A- + HB+" class="molecule-img">
+                    <p style="font-style: italic; color:#666;">Cuando el ácido HA pierde H⁺ se convierte en su <strong>base conjugada</strong> (A⁻); cuando la base B captura H⁺ se convierte en su <strong>ácido conjugado</strong> (HB⁺).</p>
+                </div>
+                <div class="tip-box"><strong>Pares conjugados:</strong> ÁCIDO (HA) ⇌ BASE CONJ. (A⁻) con −H⁺/+H⁺ &nbsp;•&nbsp; BASE (B) ⇌ ÁC. CONJ. (HB⁺) con +H⁺/−H⁺. El ácido cede el protón a la base; la base protonada puede devolverlo.</div>
+                <div class="problem-box"><strong>Ejercicio:</strong> Identifica ácido, base, ácido conjugado y base conjugada en: CH₃COOH + H₂O ⇌ CH₃COO⁻ + H₃O⁺.</div>
+                <details class="solution"><summary>🔍 Ver solución</summary>
+                    <p><strong>Ácido:</strong> CH₃COOH (cede H⁺). <strong>Base:</strong> H₂O (acepta H⁺). <strong>Base conjugada:</strong> CH₃COO⁻. <strong>Ácido conjugado:</strong> H₃O⁺.</p>
+                </details>
+            </div>
+
+            <!-- SUB: LEWIS -->
+            <div id="sub-lewis" class="tab-content">
+                <h3>🧲 Teoría ácido‑base de Lewis</h3>
+                <div class="info-box"><strong>ÁCIDO:</strong> “Sustancia con al menos un átomo capaz de <strong>aceptar un par de electrones</strong> y formar un enlace covalente coordinado”. <strong>BASE:</strong> “Sustancia con al menos un átomo capaz de <strong>aportar un par de electrones</strong>”.</div>
+                <div class="img-container">
+                    <img src="lewis-bf3-nh3.png" alt="BF3 reacciona con NH3 formando el aducto F3B-NH3 con enlace coordinado" class="molecule-img">
+                    <p style="font-style: italic; color:#666;">BF₃ + :NH₃ → F₃B–NH₃: el boro (octeto incompleto) acepta el par libre del nitrógeno.</p>
+                </div>
+                <div class="tip-box"><strong>Ácidos sin hidrógeno:</strong> sustancias como <strong>AlCl₃</strong> o <strong>BF₃</strong> actúan como ácidos de Lewis: AlCl₃ + :NH₃ → Cl₃Al–NH₃. Importancia en catálisis (Friedel‑Crafts) y en la química de receptores.</div>
+                <div class="problem-box"><strong>Ejercicio:</strong> ¿Por qué el BF₃ puede actuar como ácido si no tiene ningún H que ceder?</div>
+                <details class="solution"><summary>🔍 Ver solución</summary>
+                    <p>Porque en la definición de <strong>Lewis</strong> el ácido no cede protones: <strong>acepta un par de electrones</strong>. El B de BF₃ tiene solo 6 electrones en su capa de valencia y puede completar el octeto aceptando el par libre de una base como NH₃.</p>
+                </details>
+            </div>
+
+            <!-- SUB: FORTALEZA -->
+            <div id="sub-fuerza" class="tab-content">
+                <h3>💪 Fortaleza de ácidos: Ka</h3>
+                <div class="info-box">HA + H₂O ⇌ A⁻ + H₃O⁺ &nbsp;→&nbsp; <strong>Ka = [A⁻][H₃O⁺]/[HA]</strong>. Si <strong>Ka &gt; 100</strong>: ácido fuerte, disociado casi en su totalidad. Si <strong>Ka &lt; 1</strong>: ácido débil, parcialmente disociado. El ácido acético (CH₃COOH) tiene <strong>Ka = 1.8×10⁻⁵</strong>: es débil, como la mayoría de ácidos orgánicos.</div>
+                <h3>💪 Fortaleza de bases: Kb</h3>
+                <div class="info-box">B + H₂O ⇌ BH⁺ + OH⁻ &nbsp;→&nbsp; <strong>Kb = [BH⁺][OH⁻]/[B]</strong>. A mayor Kb, más fuerte la base.</div>
+                <h3>📉 pKa y pKb</h3>
+                <div class="tip-box"><strong>pKa = −log Ka</strong> &nbsp;•&nbsp; <strong>pKb = −log Kb</strong>. Cuanto <strong>mayor</strong> es Ka o Kb, mayor la fuerza; contrariamente, cuanto <strong>menor</strong> es pKa o pKb, mayor la fuerza del ácido o de la base.</div>
+                <div class="img-container">
+                    <img src="escala-pka.png" alt="Escala de fuerza relativa de ácidos y sus bases conjugadas con valores de Ka y pKa" class="molecule-img">
+                    <p style="font-style: italic; color:#666;">Cuanto más bajo el pKa, más fuerte el ácido; cuanto más elevado el pKa, más fuerte su base conjugada.</p>
+                </div>
+                <div class="table-responsive"><table>
+                    <tr><th>Ácido</th><th>pKa aprox.</th><th>Base conjugada</th><th>Fortaleza de la base conj.</th></tr>
+                    <tr><td>HCl</td><td>≈ −7</td><td>Cl⁻</td><td>Despreciable (muy débil)</td></tr>
+                    <tr><td>CH₃COOH</td><td>4.76</td><td>CH₃COO⁻</td><td>Débil</td></tr>
+                    <tr><td>Fenol</td><td>≈ 10</td><td>Fenolato</td><td>Moderada</td></tr>
+                    <tr><td>H₂O</td><td>15.7</td><td>HO⁻</td><td>Fuerte</td></tr>
+                    <tr><td>Etanol</td><td>≈ 16</td><td>Etóxido</td><td>Muy fuerte</td></tr>
+                    <tr><td>Etino (alquino terminal)</td><td>≈ 25</td><td>Acetiluro</td><td>Fortísima</td></tr>
+                    <tr><td>NH₃</td><td>≈ 38</td><td>NH₂⁻</td><td>Extrema</td></tr>
+                    <tr><td>CH₄</td><td>≈ 50</td><td>CH₃⁻</td><td>La más fuerte de la serie</td></tr>
+                </table></div>
+                <h3>🔗 Relación Ka·Kb = Kw</h3>
+                <div class="pharma-box"><strong>Consecuencia práctica:</strong> si un ácido es <strong>fuerte</strong>, su base conjugada es <strong>débil</strong>; si un ácido es <strong>débil</strong>, su base conjugada es <strong>fuerte</strong>. A la constante del conjugado con el agua se le llama <strong>constante de hidrólisis (Kh)</strong>: mientras mayor sea, más inestable es el compuesto.</div>
+            </div>
+
+            <!-- SUB: FACTORES -->
+            <div id="sub-factores" class="tab-content">
+                <h3>🔬 ¿Cuándo es más fuerte un ácido?</h3>
+                <div class="info-box">El equilibrio HA + H₂O ⇌ A⁻ + H₃O⁺ se desplaza hacia los iones cuando: <strong>1)</strong> el H es más positivo (átomo unido más positivo) y <strong>2)</strong> el anión A⁻ es más estable, por <strong>efecto inductivo</strong>, <strong>efecto mesomérico (deslocalización)</strong> y <strong>solvatación</strong> por el disolvente.</div>
+                <h3>⚡ Electronegatividad (mismo período)</h3>
+                <div class="tip-box">Dentro del mismo período, la acidez varía en el mismo orden de la electronegatividad: <strong>CH₄ &lt; NH₃ &lt; H₂O &lt; HF</strong>. El átomo más electronegativo quita densidad electrónica al H (más positivo y más ácido) y estabiliza mejor la carga del anión.</div>
+                <h3>📏 Tamaño del anión (mismo grupo)</h3>
+                <div class="tip-box">Dentro del mismo grupo, la acidez aumenta de arriba hacia abajo con la masa atómica: <strong>H₂O &lt; H₂S &lt; H₂Se</strong> y <strong>HF &lt; HCl &lt; HBr &lt; HI</strong>. El anión es más estable cuanto <strong>mayor es su diámetro</strong> (menor densidad de carga).</div>
+                <h3>🔀 Hibridación del carbono</h3>
+                <div class="img-container">
+                    <img src="hibridacion-acidez.png" alt="Etano sp3, eteno sp2 y etino sp con sus porcentajes s y pKa crecientes de acidez" class="molecule-img">
+                    <p style="font-style: italic; color:#666;">Los orbitales s son menos energéticos y más internos: a mayor <strong>% de carácter s</strong>, mayor acidez: sp (50 %) &gt; sp² (33 %) &gt; sp³ (25 %).</p>
+                </div>
+                <div class="info-box"><strong>Alquinos terminales:</strong> el H del carbono sp es acídico (pKa ≈ 25); si el triple enlace <strong>no es terminal</strong>, no hay H acídico. Por eso los alquinos terminales reaccionan con bases fuertes formando acetiluros.</div>
+                <div class="problem-box"><strong>Ejercicio:</strong> Ordena por acidez creciente: etano (sp³), eteno (sp²), etino (sp).</div>
+                <details class="solution"><summary>🔍 Ver solución</summary>
+                    <p>Etano (pKa ≈ 50) &lt; eteno (≈ 44) &lt; etino (≈ 25): la acidez <strong>aumenta al aumentar el porcentaje de orbital s</strong> de la hibridación del carbono que soporta la carga.</p>
+                </details>
+            </div>
+
+            <!-- SUB: FUNCIONES -->
+            <div id="sub-funciones" class="tab-content">
+                <h3>🧪 Podio de acidez orgánica</h3>
+                <div class="info-box"><strong>Ácidos carboxílicos: pKa 3–5 • Fenoles: pKa ≈ 10 • Alcoholes: pKa 15–18.</strong> También presentan acidez importante las <strong>amidas</strong> y los <strong>nitrilos</strong> (H en carbono α o N según el caso).</div>
+                <h3>🍷 Alcoholes</h3>
+                <div class="info-box">Acidez: <strong>CH₃OH &gt; 1° &gt; 2° &gt; 3°</strong> (los grupos alquilo por efecto +I desestabilizan el alcóxido). La basicidad de los alcóxidos varía en <strong>orden inverso</strong>. El <strong>efecto inductivo</strong> retirador (‑I) hace más positivo al H y estabiliza el anión: CF₃CH₂OH es mucho más ácido que CH₃CH₂OH.</div>
+                <div class="tip-box"><strong>¿Forman alcóxidos con NaOH?</strong> NO: por ser ácidos débiles (pKa 15–18) requieren una base más fuerte (p. ej. <strong>Na metálico</strong>). Mientras más débil el alcohol, base más fuerte se necesita.</div>
+                <h3>🧄 Tioles</h3>
+                <div class="bio-box">Los tioles (R–SH) son <strong>más ácidos que los alcoholes</strong>: el azufre tiene <strong>mayor tamaño</strong> que el oxígeno y estabiliza mejor la carga negativa del anión (tionolato).</div>
+                <h3>🌡️ Fenoles</h3>
+                <div class="img-container">
+                    <img src="resonancia-fenolato.png" alt="Estructuras resonantes del ion fenolato con la carga negativa deslocalizada en el anillo" class="molecule-img">
+                    <p style="font-style: italic; color:#666;">La mayor acidez del fenol se debe a la <strong>estabilización por resonancia del ion fenolato</strong>, mayor que la del propio fenol (en el fenol la resonancia genera cargas separadas).</p>
+                </div>
+                <div class="pharma-box"><strong>Diferencia clave con alcoholes:</strong> Ka del fenol ≈ 10⁻¹⁰ vs 10⁻¹⁵–10⁻¹⁸ de alcoholes → los fenoles <strong>SÍ forman fenolatos con NaOH</strong>; los alcoholes no.</div>
+                <h3>🎯 Fenoles sustituidos</h3>
+                <div class="table-responsive"><table>
+                    <tr><th>Fenol</th><th>pKa</th><th>Efecto</th></tr>
+                    <tr><td>Fenol</td><td>10.0</td><td>Referencia</td></tr>
+                    <tr><td>p‑cresol (CH₃)</td><td>10.3</td><td>Activante débil: ↓ acidez (o/p)</td></tr>
+                    <tr><td>o‑clorofenol</td><td>8.5</td><td>Halógeno −I: orto &gt; meta &gt; para</td></tr>
+                    <tr><td>p‑nitrofenol</td><td>7.1</td><td>Desactivante fuerte: ↑↑ acidez (o/p)</td></tr>
+                    <tr><td>2,4‑dinitrofenol</td><td>4.0</td><td>Efecto aditivo de los NO₂</td></tr>
+                    <tr><td>Ácido pícrico (2,4,6‑trinitrofenol)</td><td>0.4</td><td>Relativamente fuerte</td></tr>
+                </table></div>
+                <div class="tip-box"><strong>Desactivantes (NO₂, halógenos):</strong> aumentan la acidez (↑ carga + sobre el H, estabilizan el anión). <strong>Activantes (CH₃):</strong> la disminuyen. El efecto depende de la <strong>posición</strong> (orto/para para resonancia) y del <strong>efecto electrónico predominante</strong>; en orto de nitrofenoles el efecto estérico lo atenúa. Halógenos (‑I): <strong>orto &gt; meta &gt; para</strong>.</div>
+                <h3>🧪 Ácidos carboxílicos</h3>
+                <div class="img-container">
+                    <img src="resonancia-carboxilato.png" alt="Dos estructuras resonantes equivalentes del ion carboxilato" class="molecule-img">
+                    <p style="font-style: italic; color:#666;">El ion carboxilato posee <strong>estructuras resonantes equivalentes</strong>: estabilización superior a la del ácido → mayor acidez que alcoholes y fenoles.</p>
+                </div>
+                <div class="img-container">
+                    <img src="efecto-inductivo.png" alt="Comparación de acidez entre ácido acético, cloroacético y tricloroacético por efecto inductivo" class="molecule-img">
+                    <p style="font-style: italic; color:#666;">Los sustituyentes <strong>desactivantes (‑I)</strong> estabilizan el carboxilato y aumentan la acidez; el efecto inductivo alcanza solo <strong>3–4 enlaces</strong>. Los <strong>activantes (+I)</strong> la disminuyen: al crecer la cadena, ↓ acidez.</p>
+                </div>
+                <div class="bio-box"><strong>Ácidos aromáticos:</strong> desactivantes ↑ acidez (para &gt; meta); activantes ↓. En <strong>orto</strong>, cualquier sustituyente produce un aumento significativo de acidez por <strong>puente de hidrógeno/quelato</strong> que estabiliza al carboxilato (<strong>efecto orto</strong>).</div>
+            </div>
+
+            <!-- SUB: AMINAS -->
+            <div id="sub-aminas" class="tab-content">
+                <h3>🧬 Basicidad de las aminas</h3>
+                <div class="info-box">La basicidad se evidencia en su <strong>solubilización en medio ácido</strong> (formación del ion amonio). Más radicales alquilo → mayor <strong>efecto inductivo</strong> → mayor disponibilidad del par de electrones del N y mayor estabilización del catión amonio → ↑ basicidad. Pero sin H en el N disminuye la <strong>solvatación</strong> (no hay puentes de H).</div>
+                <div class="tip-box"><strong>Orden en aminas alifáticas (balance inducción + solvatación):</strong> <strong>2° &gt; 3° ≈ 1°</strong>.</div>
+                <h3>🌫️ Arilaminas (anilina)</h3>
+                <div class="img-container">
+                    <img src="anilina-basicidad.png" alt="Anilina con el par de electrones del nitrógeno deslocalizado hacia el anillo aromático" class="molecule-img">
+                    <p style="font-style: italic; color:#666;">En la anilina el par libre del N se <strong>deslocaliza</strong> en el anillo: menor basicidad (pKb ≈ 9–13). Al protonarse (catión arilamonio) disminuye la conjugación → el catión es menos estable.</p>
+                </div>
+                <div class="problem-box"><strong>Ejercicio:</strong> ¿Por qué la anilina es mucho menos básica que la propilamina?</div>
+                <details class="solution"><summary>🔍 Ver solución</summary>
+                    <p>Porque el par libre del nitrógeno de la anilina está <strong>deslocalizado por resonancia</strong> en el anillo aromático (menos disponible para captar H⁺), y al protonarse <strong>se pierde parte de esa conjugación</strong>, desestabilizando el catión arilamonio.</p>
+                </details>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============ MAPA ============ -->
+<section id="mapa" class="section">
+    <div class="card">
+        <h2>🗺️ Mapa Conceptual Interactivo</h2>
+        <p style="margin-bottom:1rem;">Haz <strong>clic en cada nodo</strong> para desplegar u ocultar sus ramas.</p>
+        <div class="map-container">
+            <ul class="map-tree">
+                <li class="has-children">
+                    <div class="map-node root" onclick="toggleMap(this)">🧪 Acidez y Basicidad (Capítulo 5)</div>
+                    <ul>
+                        <li class="has-children"><div class="map-node branch" onclick="toggleMap(this)">⚖️ Teorías ácido‑base</div>
+                            <ul>
+                                <li><span class="map-leaf">Brönsted‑Lowry: ácido cede H⁺; base acepta H⁺</span></li>
+                                <li><span class="map-leaf">Pares conjugados: HA/A⁻ y B/HB⁺</span></li>
+                                <li><span class="map-leaf">Lewis: ácido acepta par de e⁻; base aporta par de e⁻</span></li>
+                                <li><span class="map-leaf">Ácidos sin H: AlCl₃, BF₃ (aducto con NH₃)</span></li>
+                            </ul>
+                        </li>
+                        <li class="has-children"><div class="map-node branch" onclick="toggleMap(this)">💪 Fortaleza de ácidos y bases</div>
+                            <ul>
+                                <li><span class="map-leaf">Ka &gt; 100 fuerte; Ka &lt; 1 débil (CH₃COOH Ka = 1.8×10⁻⁵)</span></li>
+                                <li><span class="map-leaf">pKa = −log Ka; menor pKa = ácido más fuerte</span></li>
+                                <li><span class="map-leaf">Mayor pKa = base conjugada más fuerte</span></li>
+                                <li><span class="map-leaf">Ka·Kb = Kw: ácido fuerte → base conjugada débil</span></li>
+                            </ul>
+                        </li>
+                        <li class="has-children"><div class="map-node branch" onclick="toggleMap(this)">🔬 Factores que determinan la acidez</div>
+                            <ul>
+                                <li><span class="map-leaf">Electronegatividad (período): CH₄ &lt; NH₃ &lt; H₂O &lt; HF</span></li>
+                                <li><span class="map-leaf">Tamaño del anión (grupo): H₂O &lt; H₂S; HF &lt; HCl &lt; HBr &lt; HI</span></li>
+                                <li><span class="map-leaf">Hibridación: sp &gt; sp² &gt; sp³ (% de orbital s)</span></li>
+                                <li><span class="map-leaf">Efecto inductivo (‑I ↑ acidez; +I ↓) hasta 3–4 enlaces</span></li>
+                                <li><span class="map-leaf">Efecto mesomérico: deslocalización estabiliza el anión</span></li>
+                            </ul>
+                        </li>
+                        <li class="has-children"><div class="map-node branch" onclick="toggleMap(this)">🧪 Acidez de funciones orgánicas</div>
+                            <ul>
+                                <li><span class="map-leaf">Carboxílicos pKa 3–5: carboxilato con resonancia equivalente</span></li>
+                                <li><span class="map-leaf">Fenoles ≈ 10: resonancia del fenolato; sí reaccionan con NaOH</span></li>
+                                <li><span class="map-leaf">Alcoholes 15–18: CH₃OH &gt; 1° &gt; 2° &gt; 3°; no con NaOH</span></li>
+                                <li><span class="map-leaf">Tioles &gt; alcoholes (S mayor tamaño)</span></li>
+                                <li><span class="map-leaf">Alquinos terminales: H sp acídico (≈ 25)</span></li>
+                                <li><span class="map-leaf">Sustituyentes: NO₂ ↑↑ (o/p), CH₃ ↓, halógenos o &gt; m &gt; p; efecto orto</span></li>
+                            </ul>
+                        </li>
+                        <li class="has-children"><div class="map-node branch" onclick="toggleMap(this)">🧬 Basicidad de aminas</div>
+                            <ul>
+                                <li><span class="map-leaf">Alifáticas: 2° &gt; 3° ≈ 1° (inducción vs solvatación)</span></li>
+                                <li><span class="map-leaf">Arylaminas (anilina) menos básicas: par deslocalizado</span></li>
+                                <li><span class="map-leaf">Solubles en medio ácido: ion amonio</span></li>
+                            </ul>
+                        </li>
+                        <li class="has-children"><div class="map-node branch" onclick="toggleMap(this)">🏥 Aplicaciones médicas</div>
+                            <ul>
+                                <li><span class="map-leaf">Absorción de fármacos: forma no ionizada cruza membranas</span></li>
+                                <li><span class="map-leaf">Sales de aminas (clorhidratos) y sales sódicas de ácidos</span></li>
+                                <li><span class="map-leaf">Buffer sanguíneo H₂CO₃/HCO₃⁻: acidosis/alcalosis</span></li>
+                                <li><span class="map-leaf">Atrapamiento iónico renal en intoxicaciones</span></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!-- ============ FLASHCARDS ============ -->
+<section id="flashcards" class="section">
+    <div class="card">
+        <h2>🃏 Flashcards de Estudio</h2>
+        <p>Haz <strong>clic en la tarjeta</strong> para voltearla y ver la respuesta. Luego califícate con honestidad.</p>
+        <div class="fc-stats">
+            <span class="fc-stat good">✅ Buenas: <span id="fc-good">0</span></span>
+            <span class="fc-stat bad">❌ Malas: <span id="fc-bad">0</span></span>
+            <span class="fc-stat pending">⏳ Pendientes: <span id="fc-left">0</span></span>
+            <span class="fc-stat total">📈 Historial: <span id="fc-hist">0 ✓ / 0 ✗</span></span>
+        </div>
+        <div class="fc-progress"><div class="fc-progress-bar" id="fc-bar"></div></div>
+        <div class="flashcard-scene" id="fc-scene">
+            <div class="flashcard" id="fc-card" onclick="flipCard()">
+                <div class="fc-face fc-front"><div class="fc-label">PREGUNTA</div><div id="fc-question"></div><span class="fc-hint">Clic para voltear ✨</span></div>
+                <div class="fc-face fc-back"><div class="fc-label">RESPUESTA</div><div id="fc-answer"></div></div>
+            </div>
+        </div>
+        <div class="fc-controls" id="fc-controls">
+            <button class="fc-btn good" id="btn-fc-good" onclick="gradeCard(true)" disabled>✅ La sabía</button>
+            <button class="fc-btn bad" id="btn-fc-bad" onclick="gradeCard(false)" disabled>❌ No la sabía</button>
+        </div>
+        <div id="fc-summary" class="calc-result" style="max-width:720px;margin:1rem auto;"></div>
+        <div style="text-align:center;">
+            <button class="calc-button" onclick="resetFlashcards()">🔄 Reiniciar Flashcards</button><br>
+            <button class="fc-link" onclick="borrarHistorial()">Borrar historial acumulado</button>
+        </div>
+    </div>
+</section>
+
+<!-- ============ HERRAMIENTAS ============ -->
+<section id="calculadoras" class="section">
+    <div class="card">
+        <h2>🧮 Herramientas Interactivas</h2>
+        <div id="herramientas-tabs" class="tab-group">
+            <div class="tabs">
+                <button class="tab active" onclick="showTab('herramientas-tabs','calc-pka', this)">🔢 Conversor pKa ↔ Ka</button>
+                <button class="tab" onclick="showTab('herramientas-tabs','calc-compara', this)">⚖️ Comparador de Acidez</button>
+                <button class="tab" onclick="showTab('herramientas-tabs','calc-factor', this)">🔍 Analizador de Factores</button>
+                <button class="tab" onclick="showTab('herramientas-tabs','calc-escala', this)">📊 Escala de pKa</button>
+            </div>
+
+            <div id="calc-pka" class="tab-content active">
+                <div class="calculator">
+                    <div class="calc-title">🔢 Conversor pKa ↔ Ka (y fuerza del conjugado)</div>
+                    <div class="calc-input-group"><label>Ingresa el pKa del ácido:</label>
+                        <input type="number" id="pka-input" step="0.1" value="4.76" min="-10" max="60">
+                    </div>
+                    <button class="calc-button" onclick="convertirPka()">Calcular Ka y analizar</button>
+                    <div id="pka-resultado" class="calc-result"></div>
+                </div>
+            </div>
+
+            <div id="calc-compara" class="tab-content">
+                <div class="calculator">
+                    <div class="calc-title">⚖️ Comparador: ¿cuál es más ácido?</div>
+                    <div class="calc-input-group"><label>Selecciona un par de compuestos:</label>
+                        <select id="par-select">
+                            <option value="0">Etanol (16) vs Fenol (10)</option>
+                            <option value="1">Fenol (10) vs p‑nitrofenol (7.1)</option>
+                            <option value="2">Ác. acético (4.76) vs ác. cloroacético (2.86)</option>
+                            <option value="3">Etanol (16) vs 2,2,2‑trifluoroetanol (12.4)</option>
+                            <option value="4">Etanol (16) vs etanotiol (10.5)</option>
+                            <option value="5">H₂O (15.7) vs H₂S (7.0)</option>
+                            <option value="6">NH₃ (38) vs HF (3.2)</option>
+                            <option value="7">Etino (25) vs eteno (44)</option>
+                            <option value="8">Metanol (15.5) vs tert‑butanol (18)</option>
+                            <option value="9">Fenol (10) vs p‑cresol (10.3)</option>
+                        </select>
+                    </div>
+                    <button class="calc-button" onclick="compararPar()">Comparar acidez</button>
+                    <div id="par-resultado" class="calc-result"></div>
+                    <div class="tip-box" style="margin-top:2rem;"><strong>Jerarquía de factores:</strong> resonancia (mesomérico) &gt; tamaño del anión (grupo) &gt; electronegatividad (período) &gt; hibridación (% s) &gt; efecto inductivo (‑I ↑ acidez, limitado a 3–4 enlaces).</div>
+                </div>
+            </div>
+
+            <div id="calc-factor" class="tab-content">
+                <div class="calculator">
+                    <div class="calc-title">🔍 Analizador de factores de acidez</div>
+                    <div class="calc-input-group"><label>Selecciona un compuesto:</label>
+                        <select id="factor-comp">
+                            <option value="acacetico">Ácido acético (pKa 4.76)</option>
+                            <option value="tricloro">Ácido tricloroacético (pKa 0.7)</option>
+                            <option value="fenol">Fenol (pKa 10)</option>
+                            <option value="pnitro">p‑nitrofenol (pKa 7.1)</option>
+                            <option value="picrico">Ácido pícrico (pKa 0.4)</option>
+                            <option value="etanol">Etanol (pKa 16)</option>
+                            <option value="tbutanol">tert‑butanol (pKa 18)</option>
+                            <option value="tfe">2,2,2‑trifluoroetanol (pKa 12.4)</option>
+                            <option value="etintio">Etanotiol (pKa 10.5)</option>
+                            <option value="etino">Etino (pKa 25)</option>
+                        </select>
+                    </div>
+                    <button class="calc-button" onclick="analizarFactor()">Analizar factor dominante</button>
+                    <div id="factor-resultado" class="calc-result"></div>
+                </div>
+            </div>
+
+            <div id="calc-escala" class="tab-content">
+                <div class="calculator">
+                    <div class="calc-title">📊 Visualizador de escala de pKa</div>
+                    <div style="text-align:center;">
+                        <button class="calc-button" onclick="renderBarras('funciones')">Funciones orgánicas</button>
+                        <button class="calc-button" onclick="renderBarras('fenoles')">Fenoles sustituidos</button>
+                    </div>
+                    <div id="pk-barras" class="bar-wrap"></div>
+                    <div id="pk-msg" class="calc-result show" style="max-width:760px;margin:1rem auto;">Pulsa un botón para graficar. <strong>Barra más alta = ácido más fuerte (menor pKa).</strong></div>
+                    <div class="info-box"><strong>Interpretación:</strong> menor pKa → mayor Ka → ácido más fuerte y base conjugada más débil. Observa el podio: carboxílicos (3–5) &gt; fenoles (≈10) &gt; alcoholes (15–18), y cómo los –NO₂ desploman el pKa del fenol hasta 0.4 (ácido pícrico).</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============ APLICACIONES ============ -->
+<section id="aplicaciones" class="section">
+    <div class="card">
+        <h2>🏥 Aplicaciones Profesionales</h2>
+        <div id="aplicaciones-tabs" class="tab-group">
+            <div class="tabs">
+                <button class="tab active" onclick="showTab('aplicaciones-tabs','aplic-medicina', this)">🩺 Medicina</button>
+                <button class="tab" onclick="showTab('aplicaciones-tabs','aplic-farma', this)">💊 Farmacología</button>
+                <button class="tab" onclick="showTab('aplicaciones-tabs','aplic-bioq', this)">🧬 Bioquímica y Fisiología</button>
+            </div>
+
+            <div id="aplic-medicina" class="tab-content active">
+                <div class="bio-box"><strong>Enfoque clínico:</strong> el pKa de un fármaco y el pH del medio determinan su fracción ionizada/no ionizada y, con ello, su absorción, distribución y excreción.</div>
+                <div class="problem-box"><strong>📋 Problema 1 — Aspirina en el estómago:</strong> El ácido acetilsalicílico (pKa ≈ 3.5) se absorbe bien en el estómago (pH 1–3). ¿Por qué?</div>
+                <details class="solution"><summary>🔍 Ver solución</summary>
+                    <p>A pH muy por debajo de su pKa, el ácido débil está mayoritariamente <strong>protonado (no ionizado)</strong>, forma neutra más liposoluble que atraviesa la membrana gástrica. En plasma (pH 7.4) estará ionizado (soluble en sangre). Es la base de la relación pH‑pKa‑absorción.</p>
+                </details>
+                <div class="problem-box"><strong>📋 Problema 2 — Acidosis metabólica:</strong> En acidosis diabética se acumulan ácidos (pKa bajos) y cae el HCO₃⁻. ¿Qué par ácido‑base amortigua la sangre?</div>
+                <details class="solution"><summary>🔍 Ver solución</summary>
+                    <p>El sistema <strong>H₂CO₃/HCO₃⁻ (pKa ≈ 6.1)</strong>: la base conjugada (bicarbonato) captura los H⁺ de los ácidos fuertes añadidos. Cuando el ácido es fuerte, su base conjugada es débil… y viceversa: el par amortiguador aprovecha exactamente la relación Ka·Kb del capítulo.</p>
+                </details>
+                <div class="problem-box"><strong>📋 Problema 3 — Fenol como antiséptico:</strong> El fenol (pKa ≈ 10) fue el antiséptico de Lister, pero es cáustico. ¿Qué propiedad química lo explica?</div>
+                <details class="solution"><summary>🔍 Ver solución</summary>
+                    <p>Su <strong>acidez superior a la de los alcoholes</strong> (resonancia del fenolato) le permite desnaturalizar proteínas y dañar tejidos; en medio alcalino forma fenolatos solubles. La acidez explica tanto su acción como su toxicidad cutánea.</p>
+                </details>
+            </div>
+
+            <div id="aplic-farma" class="tab-content">
+                <div class="pharma-box"><strong>Enfoque farmacológico:</strong> la ionización controla solubilidad, formulación y excreción de fármacos ácidos y básicos.</div>
+                <div class="problem-box"><strong>📋 Problema 1 — Sales de aminas:</strong> ¿Por qué la lidocaína se administra como clorhidrato?</div>
+                <details class="solution"><summary>🔍 Ver solución</summary>
+                    <p>Las aminas son <strong>bases</strong>: en medio ácido se protonan formando el <strong>ion amonio</strong>, soluble en agua. La sal (clorhidrato) garantiza la solubilidad exigida por inyectables y mejora la estabilidad del preparado.</p>
+                </details>
+                <div class="problem-box"><strong>📋 Problema 2 — Sales sódicas de ácidos:</strong> ¿Por qué el diclofenaco se formula como “diclofenaco sódico”?</div>
+                <details class="solution"><summary>🔍 Ver solución</summary>
+                    <p>Al ser un <strong>ácido carboxílico débil</strong>, con NaOH forma el <strong>carboxilato (sal sódica)</strong>, ionizado y muy soluble en agua → absorción más rápida. Los ácidos sí forman sales con NaOH (a diferencia de los alcoholes).</p>
+                </details>
+                <div class="problem-box"><strong>📋 Problema 3 — Intoxicación por aspirina:</strong> En sobredosis de salicilatos se alcaliniza la orina. ¿Fundamento?</div>
+                <details class="solution"><summary>🔍 Ver solución</summary>
+                    <p>Con orina alcalina, el ácido débil queda <strong>ionizado (salicilato)</strong>: la forma cargada no se reabsorbe en el túbulo y se excreta (“<strong>atrapamiento iónico</strong>”). Se aplica la regla: ácido débil → base conjugada estable y soluble en agua.</p>
+                </details>
+            </div>
+
+            <div id="aplic-bioq" class="tab-content">
+                <div class="bio-box"><strong>Enfoque molecular:</strong> los grupos ácidos y básicos de biomoléculas definen carga, estructura y función según el pH.</div>
+                <div class="problem-box"><strong>📋 Problema 1 — Aminoácidos zwitterión:</strong> ¿Por qué un aminoácido tiene carga + y − simultáneas a pH fisiológico?</div>
+                <details class="solution"><summary>🔍 Ver solución</summary>
+                    <p>Porque posee un <strong>ácido carboxílico (pKa ≈ 2)</strong>, que a pH 7.4 está desprotonado (–COO⁻), y una <strong>amina (pKa ≈ 9–10)</strong>, protonada (–NH₃⁺). El pH del medio frente a cada pKa decide el estado de ionización de cada grupo.</p>
+                </details>
+                <div class="problem-box"><strong>📋 Problema 2 — Cetoacidosis diabética:</strong> ¿Qué ácidos se acumulan y por qué deprimen el pH?</div>
+                <details class="solution"><summary>🔍 Ver solución</summary>
+                    <p>Ácido acetoacético y β‑hidroxibutírico, <strong>ácidos carboxílicos (pKa 3–5)</strong>: a pH fisiológico están casi totalmente disociados, ceden H⁺ y consumen bicarbonato del buffer → cae el pH sanguíneo.</p>
+                </details>
+                <div class="problem-box"><strong>📋 Problema 3 — ADN y pKa:</strong> ¿Por qué los fosfatos del ADN están cargados negativamente a pH celular?</div>
+                <details class="solution"><summary>🔍 Ver solución</summary>
+                    <p>El ácido fosfórico del esqueleto es un <strong>ácido fuerte (pKa muy bajos)</strong>: a pH ≈ 7.4 está totalmente disociado (fosfato −), lo que confiere al ADN su carácter polianiónico y su solubilidad en el medio acuoso celular.</p>
+                </details>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============ MNEMOTECNIAS ============ -->
+<section id="mnemotecnias" class="section">
+    <div class="card">
+        <h2>🧠 Nemotecnias y Reglas Mnemotécnicas</h2>
+        <div class="mnemonic-card"><div class="mnemonic-title">📉 “pKa abajo, ácido arriba”</div><p>Cuanto <strong>menor pKa</strong>, más fuerte el ácido; cuanto <strong>mayor pKa</strong>, más fuerte su <strong>base conjugada</strong>.</p></div>
+        <div class="mnemonic-card"><div class="mnemonic-title">🏆 “Podio de acidez: 3‑5, 10, 15‑18”</div><p><strong>Carboxílicos (3–5) &gt; fenoles (≈10) &gt; alcoholes (15–18)</strong>. Y el alquino terminal entra con 25 por hibridación sp.</p></div>
+        <div class="mnemonic-card"><div class="mnemonic-title">🤝 “Ácido fuerte, conjugada débil”</div><p>Ka·Kb = Kw: las fuerzas se compensan. HCl fuerte → Cl⁻ base despreciable; etanol débil → etóxido fortísimo.</p></div>
+        <div class="mnemonic-card"><div class="mnemonic-title">⚡ “sp escupe el protón”</div><p>Más carácter s (sp 50 % &gt; sp² 33 % &gt; sp³ 25 %) → electrones más atraídos por el núcleo → anión estable → <strong>más ácido</strong>. Solo el alquino <strong>terminal</strong> tiene ese H.</p></div>
+        <div class="mnemonic-card"><div class="mnemonic-title">🥚 “Anión grande, anión estable”</div><p>En el mismo grupo, acidez hacia abajo: <strong>H₂S &gt; H₂O</strong> y <strong>HI &gt; HBr &gt; HCl &gt; HF</strong>. El tamaño pesa más que la electronegatividad.</p></div>
+        <div class="mnemonic-card"><div class="mnemonic-title">🧲 “El que tira electrones, sube la acidez”</div><p>Desactivantes/‑I (NO₂, halógenos, CF₃) <strong>aumentan</strong> la acidez; activantes/+I (CH₃, cadenas largas) la <strong>disminuyen</strong>. El efecto inductivo llega solo a <strong>3–4 enlaces</strong>.</p></div>
+        <div class="mnemonic-card"><div class="mnemonic-title">🎯 “Nitro en orto/para: ácido a la vera; metilo en el anillo: acidez en declive”</div><p>NO₂ ↑↑ acidez (efecto aditivo: pícrico 0.4); CH₃ ↓ (o/p). Halógenos por −I: <strong>orto &gt; meta &gt; para</strong>.</p></div>
+        <div class="mnemonic-card"><div class="mnemonic-title">🍷 “Metanol gana, terciario pierde”</div><p>Alcoholes: <strong>CH₃OH &gt; 1° &gt; 2° &gt; 3°</strong>; la basicidad de sus alcóxidos va al revés. Con NaOH <strong>no</strong> hay alcóxido: se necesita Na metálico.</p></div>
+        <div class="mnemonic-card"><div class="mnemonic-title">🦶 “Efecto orto: todo vecino sube”</div><p>En ácidos aromáticos, <strong>cualquier sustituyente en orto</strong> aumenta bastante la acidez (quelato/puente de H que estabiliza el carboxilato).</p></div>
+        <div class="mnemonic-card"><div class="mnemonic-title">🧲 “Lewis sin H: BF₃ y AlCl₃”</div><p>Ácido de Lewis = <strong>acepta</strong> par de electrones; base = lo <strong>aporta</strong>. BF₃ + :NH₃ → F₃B–NH₃.</p></div>
+    </div>
+</section>
+
+<!-- ============ GLOSARIO ============ -->
+<section id="glosario" class="section">
+    <div class="card">
+        <h2>📖 Glosario Interactivo</h2>
+        <p style="margin-bottom:1.5rem;">Haz clic en cada término para ver su definición:</p>
+        <div class="glossary-term" onclick="toggleDefinition(this)"><strong>Ácido de Brönsted‑Lowry</strong><div class="glossary-definition">Sustancia que en disolución cede H⁺ (protones).</div></div>
+        <div class="glossary-term" onclick="toggleDefinition(this)"><strong>Base de Brönsted‑Lowry</strong><div class="glossary-definition">Sustancia que en disolución acepta H⁺.</div></div>
+        <div class="glossary-term" onclick="toggleDefinition(this)"><strong>Ácido de Lewis</strong><div class="glossary-definition">Sustancia con al menos un átomo capaz de aceptar un par de electrones y formar un enlace covalente coordinado (BF₃, AlCl₃).</div></div>
+        <div class="glossary-term" onclick="toggleDefinition(this)"><strong>Base de Lewis</strong><div class="glossary-definition">Sustancia con al menos un átomo capaz de aportar un par de electrones para formar un enlace covalente coordinado (NH₃).</div></div>
+        <div class="glossary-term" onclick="toggleDefinition(this)"><strong>Par ácido‑base conjugado</strong><div class="glossary-definition">HA/A⁻ o B/HB⁺: el ácido al perder H⁺ da su base conjugada; la base al ganarlo da su ácido conjugado.</div></div>
+        <div class="glossary-term" onclick="toggleDefinition(this)"><strong>Constante de acidez (Ka)</strong><div class="glossary-definition">Ka = [A⁻][H₃O⁺]/[HA] para HA + H₂O ⇌ A⁻ + H₃O⁺. Ka &gt; 100: fuerte; Ka &lt; 1: débil.</div></div>
+        <div class="glossary-term" onclick="toggleDefinition(this)"><strong>Constante de basicidad (Kb)</strong><div class="glossary-definition">Kb = [BH⁺][OH⁻]/[B] para B + H₂O ⇌ BH⁺ + OH⁻.</div></div>
+        <div class="glossary-term" onclick="toggleDefinition(this)"><strong>pKa / pKb</strong><div class="glossary-definition">pKa = −log Ka; pKb = −log Kb. Menor pKa = ácido más fuerte; menor pKb = base más fuerte.</div></div>
+        <div class="glossary-term" onclick="toggleDefinition(this)"><strong>Relación Ka·Kb = Kw</strong><div class="glossary-definition">Un ácido fuerte tiene base conjugada débil y un ácido débil tiene base conjugada fuerte.</div></div>
+        <div class="glossary-term" onclick="toggleDefinition(this)"><strong>Constante de hidrólisis (Kh)</strong><div class="glossary-definition">Constante del ácido o base conjugada en su reacción con el agua; mientras mayor, más inestable el compuesto.</div></div>
+        <div class="glossary-term" onclick="toggleDefinition(this)"><strong>Efecto inductivo</strong><div class="glossary-definition">Transmisión de densidad electrónica por enlaces σ: los retiradores (‑I) aumentan la acidez; los dadores (+I) la disminuyen. Alcance: 3–4 enlaces.</div></div>
+        <div class="glossary-term" onclick="toggleDefinition(this)"><strong>Efecto mesomérico (resonancia)</strong><div class="glossary-definition">Deslocalización de electrones π que estabiliza al anión (fenolato, carboxilato) y aumenta la acidez.</div></div>
+        <div class="glossary-term" onclick="toggleDefinition(this)"><strong>Hibridación y acidez</strong><div class="glossary-definition">La acidez aumenta con el % de orbital s: sp &gt; sp² &gt; sp³; los orbitales s son más internos y estabilizan la carga.</div></div>
+        <div class="glossary-term" onclick="toggleDefinition(this)"><strong>Alcóxido</strong><div class="glossary-definition">Base conjugada de un alcohol (R–O⁻); se forma solo con bases muy fuertes (Na metálico), no con NaOH.</div></div>
+        <div class="glossary-term" onclick="toggleDefinition(this)"><strong>Fenolato (fenóxido)</strong><div class="glossary-definition">Base conjugada del fenol, estabilizada por resonancia; se forma directamente con NaOH.</div></div>
+        <div class="glossary-term" onclick="toggleDefinition(this)"><strong>Carboxilato</strong><div class="glossary-definition">Base conjugada de un ácido carboxílico con dos estructuras resonantes equivalentes: clave de su mayor acidez.</div></div>
+        <div class="glossary-term" onclick="toggleDefinition(this)"><strong>Efecto orto (quelato)</strong><div class="glossary-definition">Aumento significativo de acidez en ácidos aromáticos sustituidos en orto, por puente de hidrógeno/quelato que estabiliza al carboxilato.</div></div>
+        <div class="glossary-term" onclick="toggleDefinition(this)"><strong>Ácido pícrico</strong><div class="glossary-definition">2,4,6‑trinitrofenol (pKa ≈ 0.4): el efecto aditivo de tres –NO₂ lo convierte en un ácido relativamente fuerte.</div></div>
+    </div>
+</section>
+
+<!-- ============ ERRORES ============ -->
+<section id="errores" class="section">
+    <div class="card">
+        <h2>⚠️ Errores Comunes de Estudiantes</h2>
+        <div class="error-card"><div class="error-title">❌ Error 1: Creer que a mayor pKa el ácido es más fuerte</div><p><strong>Error:</strong> invertir la relación pKa‑fuerza.</p><div class="correction">✓ Corrección: <strong>menor pKa = ácido más fuerte</strong>; y mayor pKa = <strong>base conjugada más fuerte</strong>.</div></div>
+        <div class="error-card"><div class="error-title">❌ Error 2: Afirmar que los alcoholes forman alcóxidos con NaOH</div><p><strong>Error:</strong> tratar al alcohol como ácido “normal”.</p><div class="correction">✓ Corrección: con pKa 15–18 son demasiado débiles: requieren bases más fuertes (Na metálico). Los <strong>fenoles sí</strong> reaccionan con NaOH.</div></div>
+        <div class="error-card"><div class="error-title">❌ Error 3: Igualar la acidez del fenol con la de un alcohol</div><p><strong>Error:</strong> ignorar la resonancia del fenolato.</p><div class="correction">✓ Corrección: el fenol (Ka ≈ 10⁻¹⁰) es ~10⁶ veces más ácido que un alcohol (10⁻¹⁶) por la <strong>deslocalización de la carga</strong> en el fenolato.</div></div>
+        <div class="error-card"><div class="error-title">❌ Error 4: Asignar H acídico a cualquier alquino</div><p><strong>Error:</strong> olvidar que el H acídico exige triple enlace <strong>terminal</strong>.</p><div class="correction">✓ Corrección: solo el H sobre el carbono <strong>sp terminal</strong> es acídico; el 2‑butino (interno) no lo tiene.</div></div>
+        <div class="error-card"><div class="error-title">❌ Error 5: Usar electronegatividad para comparar dentro de un grupo</div><p><strong>Error:</strong> decir que HF es más fuerte que HI por el F.</p><div class="correction">✓ Corrección: en el mismo grupo manda el <strong>tamaño del anión</strong>: HI &gt; HBr &gt; HCl &gt; HF y H₂S &gt; H₂O.</div></div>
+        <div class="error-card"><div class="error-title">❌ Error 6: Negar que BF₃ o AlCl₃ sean ácidos por no tener H</div><p><strong>Error:</strong> aplicar solo Brönsted‑Lowry.</p><div class="correction">✓ Corrección: en <strong>Lewis</strong>, ácido = aceptor de par de electrones; BF₃ + NH₃ → F₃B–NH₃.</div></div>
+        <div class="error-card"><div class="error-title">❌ Error 7: Creer que la amina 3° siempre es la más básica</div><p><strong>Error:</strong> considerar solo el efecto inductivo.</p><div class="correction">✓ Corrección: sin H en el N se pierde <strong>solvatación</strong> por puentes de H; el orden real en solución es <strong>2° &gt; 3° ≈ 1°</strong>.</div></div>
+        <div class="error-card"><div class="error-title">❌ Error 8: Pensar que los grupos activantes aumentan la acidez</div><p><strong>Error:</strong> invertir el efecto del sustituyente.</p><div class="correction">✓ Corrección: <strong>desactivantes</strong> (NO₂, halógenos) ↑ acidez; <strong>activantes</strong> (CH₃) ↓ acidez.</div></div>
+        <div class="error-card"><div class="error-title">❌ Error 9: Olvidar el efecto orto en ácidos aromáticos</div><p><strong>Error:</strong> predecir acidez del isómero orto solo por electrónica.</p><div class="correction">✓ Corrección: en orto, <strong>cualquier sustituyente</strong> aumenta significativamente la acidez (quelato/puente de H que estabiliza el carboxilato).</div></div>
+        <div class="error-card"><div class="error-title">❌ Error 10: Extender el efecto inductivo a toda la molécula</div><p><strong>Error:</strong> aplicar −I a cualquier distancia.</p><div class="correction">✓ Corrección: el efecto inductivo se limita a <strong>3, o a lo sumo 4, enlaces</strong> de distancia.</div></div>
+        <div class="tip-box" style="margin-top:2rem;"><strong>💡 Consejo de estudio:</strong> ante cualquier compuesto pregúntate:
+            <ol>
+                <li>¿Qué tan estable es su base conjugada? (resonancia, tamaño, electronegatividad, hibridación)</li>
+                <li>¿Hay grupos ‑I o +I cerca (≤ 4 enlaces)?</li>
+                <li>¿Es fenol, alcohol o carboxílico? (podio 3–5 / 10 / 15–18)</li>
+                <li>¿Ácido o base según Brönsted o Lewis? → aplica Ka·Kb = Kw</li>
+            </ol>
+            Con eso dominas el Capítulo 5.</div>
+    </div>
+</section>
+
+<!-- ============ BIBLIOGRAFÍA ============ -->
+<section id="bibliografia" class="section">
+    <div class="card">
+        <h2>📚 Fuentes Bibliográficas Universitarias</h2>
+        <h3>Libros de Texto Principales</h3>
+        <div class="info-box"><strong>1. Wade, L.G. — “Química Orgánica”</strong><br>• <strong>Cap. 2:</strong> Ácidos y bases: teorías de Brönsted‑Lowry y Lewis, pKa, efectos estructurales sobre la acidez<br>• Capítulos de funciones orgánicas: acidez de fenoles, alcoholes y ácidos; basicidad de aminas<br>• 9na edición, Pearson, 2017</div>
+        <div class="info-box"><strong>2. McMurry, J. — “Química Orgánica”</strong><br>• <strong>Cap. 2:</strong> Ácidos y bases orgánicos • <strong>Caps. 10, 17 y 24:</strong> fenoles, ácidos carboxílicos y aminas (acidez/basicidad)<br>• 9na edición, Cengage Learning, 2016</div>
+        <div class="info-box"><strong>3. Solomons, T.W.G. & Fryhle, C.B. — “Química Orgánica”</strong><br>• <strong>Cap. 3:</strong> Ácidos y bases: efectos inductivos y de resonancia sobre la acidez • Capítulos de cada función orgánica<br>• 10ma edición, Wiley, 2011</div>
+        <h3>Recursos Especializados</h3>
+        <div class="bio-box"><div><strong>4. Clayden, J. — “Organic Chemistry”</strong><br>• Capítulos de estructura y acidez: pKa, conjugación y estabilización de aniones • 2da ed., Oxford, 2012</div></div>
+        <div class="pharma-box"><div><strong>5. Patrick, G.L. — “An Introduction to Medicinal Chemistry”</strong><br>• Cap. de ionización de fármacos: pKa, pH, absorción y atrapamiento iónico • 6ta ed., Oxford, 2017</div></div>
+        <h3>Artículos y Recursos en Línea</h3>
+        <div class="info-box"><strong>6. PubChem (pubchem.ncbi.nlm.nih.gov):</strong> valores experimentales de pKa de ácidos, fenoles, alcoholes y aminas del capítulo.</div>
+        <div class="tip-box"><strong>7. MolView (molview.org):</strong> visualiza resonancia del fenolato y del carboxilato y la deslocalización del par de la anilina.</div>
+        <h3>Recursos UPCH</h3>
+        <div class="bio-box"><div><strong>8. Material de clase — Facultad de Medicina UPCH</strong><br>• Capítulo 05 (UFBI Química Orgánica): Acidez y Basicidad<br>• Guías de práctica y banco de preguntas de exámenes</div></div>
+    </div>
+</section>
+
+<!-- ============ QUIZ ============ -->
+<section id="quiz" class="section">
+    <div class="card">
+        <h2>🎯 Quiz de Autoevaluación</h2>
+        <p>Cada ciclo muestra <strong>10 preguntas al azar</strong> de una base de <strong>30</strong>. Cada vez que entras a esta pestaña o terminas un ciclo se sortean preguntas nuevas.</p>
+        <div class="quiz-stats">
+            <span class="quiz-stat" id="q-progress-text">Pregunta 1 de 10 • Aciertos: 0</span>
+            <span class="quiz-stat" id="q-history" style="background:#6c757d;"></span>
+        </div>
+        <div class="quiz-progress"><div class="quiz-progress-bar-bg"><div class="quiz-progress-bar" id="q-bar"></div></div></div>
+        <div id="quiz-container"></div>
+        <div id="quiz-result" class="calc-result" style="max-width:720px;margin:1rem auto;"></div>
+        <div style="text-align:center; margin-top:2rem;">
+            <button class="calc-button" onclick="startNewCycle()">🔄 Reiniciar Quiz (nuevo ciclo aleatorio)</button>
+        </div>
+    </div>
+</section>
+
+</div>
+
+<footer class="footer">
+    <p style="font-size:1.2rem; margin-bottom:1rem;">🎓 Universidad Peruana Cayetano Heredia</p>
+    <p>Facultad de Medicina • Departamento de Ciencias Básicas</p>
+    <p style="margin-top:1rem; font-style:italic;">"La química orgánica es el lenguaje de la vida"</p>
+    <p style="margin-top:2rem; font-size:0.9rem;">© 2026 - Material educativo para estudiantes de medicina</p>
+</footer>
+
+<script>
+// ================= NAVEGACIÓN =================
+function showSection(sectionId, btn) {
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+    document.getElementById(sectionId).classList.add('active');
+    document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+    if (btn) btn.classList.add('active');
+    if (sectionId === 'quiz') startNewCycle(); // 🎲 nuevo sorteo CADA vez que se entra al Quiz
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+function showTab(groupId, tabId, btn) {
+    const g = document.getElementById(groupId);
+    g.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+    g.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    document.getElementById(tabId).classList.add('active');
+    if (btn) btn.classList.add('active');
+}
+function toggleMap(node){ node.parentElement.classList.toggle('open'); }
+function toggleDefinition(el){
+    const d = el.querySelector('.glossary-definition');
+    d.classList.toggle('show');
+    el.style.background = d.classList.contains('show') ? '#fff9e6' : 'var(--white)';
+}
+
+// ================= FLASHCARDS =================
+const flashcards = [
+ { q:'Ácido según Brönsted‑Lowry:', a:'Sustancia que en disolución cede H+.' },
+ { q:'Base según Brönsted‑Lowry:', a:'Sustancia que en disolución acepta H+.' },
+ { q:'Ácido y base según Lewis:', a:'Ácido: acepta un par de electrones (enlace coordinado). Base: aporta el par. Ej.: AlCl3 y BF3 sin H.' },
+ { q:'Par conjugado de HA y de B:', a:'HA pierde H+ y da su base conjugada A-; B gana H+ y da su ácido conjugado HB+.' },
+ { q:'Criterios de Ka:', a:'Ka > 100: ácido fuerte (casi totalmente disociado). Ka < 1: débil (parcial). CH3COOH: Ka = 1.8×10-5.' },
+ { q:'pKa y fuerza:', a:'pKa = -log Ka. Menor pKa = ácido más fuerte; menor pKb = base más fuerte.' },
+ { q:'Ka·Kb = Kw significa:', a:'Ácido fuerte tiene base conjugada débil; ácido débil, base conjugada fuerte.' },
+ { q:'Podio de acidez orgánica (pKa):', a:'Carboxílicos 3-5 > fenoles ≈ 10 > alcoholes 15-18.' },
+ { q:'Electronegatividad (mismo período):', a:'La acidez sigue la electronegatividad: CH4 < NH3 < H2O < HF.' },
+ { q:'Tamaño del anión (mismo grupo):', a:'Acidez hacia abajo: H2O < H2S y HF < HCl < HBr < HI (anión mayor = carga más diluida).' },
+ { q:'Hibridación y acidez:', a:'sp > sp2 > sp3: a mayor % de orbital s, mayor acidez. Los orbitales s son más internos y estabilizan la carga.' },
+ { q:'Alquinos terminales:', a:'Tienen H acídico (C sp, pKa ≈ 25); si el triple enlace no es terminal, no.' },
+ { q:'Acidez de alcoholes:', a:'CH3OH > 1° > 2° > 3°; la basicidad de los alcóxidos varía en orden inverso.' },
+ { q:'Alcoholes + NaOH:', a:'NO forman alcóxidos (ácidos débiles): requieren base más fuerte (Na metálico).' },
+ { q:'Tioles vs alcoholes:', a:'Tioles más ácidos: el S, de mayor tamaño, estabiliza mejor la carga negativa del anión.' },
+ { q:'Fenoles vs alcoholes:', a:'Fenoles más ácidos por resonancia del fenolato; Ka ≈ 10-10 vs 10-15 a 10-18 de alcoholes.' },
+ { q:'Fenoles + NaOH:', a:'SÍ forman fenolatos (fenóxidos) directamente, a diferencia de los alcoholes.' },
+ { q:'Sustituyentes en fenoles:', a:'Desactivantes (NO2) ↑ acidez en orto/para; activantes (CH3) ↓; halógenos (-I): orto > meta > para.' },
+ { q:'Ácido pícrico:', a:'2,4,6-trinitrofenol: el efecto aditivo de 3 NO2 lo hace relativamente fuerte (pKa ≈ 0.4).' },
+ { q:'Carboxílicos vs alcoholes:', a:'Más fuertes por el carboxilato con estructuras resonantes equivalentes.' },
+ { q:'Alcance del efecto inductivo:', a:'Limitado a 3, o a lo sumo 4, enlaces de distancia.' },
+ { q:'Cadena carbonada en carboxílicos:', a:'Al aumentar la cadena disminuye la acidez (aumenta el efecto +I).' },
+ { q:'Efecto orto en ácidos aromáticos:', a:'Cualquier sustituyente en orto aumenta significativamente la acidez (quelato/puente de H estabiliza el carboxilato).' },
+ { q:'Basicidad de aminas alifáticas:', a:'2° > 3° ≈ 1°: balance entre efecto inductivo (radicales) y solvatación (puentes de H del catión).' },
+ { q:'Arylaminas (anilina):', a:'Menos básicas (pKb 9-13): el par del N se deslocaliza en el anillo; al protonarse disminuye la conjugación.' }
+];
+let fcIndex=0, fcFlipped=false, fcGood=0, fcBad=0, fcDone=false;
+function fcUpdateStats(){
+    document.getElementById('fc-good').textContent=fcGood;
+    document.getElementById('fc-bad').textContent=fcBad;
+    document.getElementById('fc-left').textContent=Math.max(0,flashcards.length-fcIndex);
+    const tg=parseInt(localStorage.getItem('fc5TotalGood')||'0',10), tb=parseInt(localStorage.getItem('fc5TotalBad')||'0',10);
+    document.getElementById('fc-hist').textContent=tg+' ✓ / '+tb+' ✗';
+    document.getElementById('fc-bar').style.width=(fcIndex/flashcards.length*100)+'%';
+}
+function fcRenderCard(){
+    document.getElementById('fc-card').classList.remove('flipped'); fcFlipped=false;
+    document.getElementById('fc-question').textContent=flashcards[fcIndex].q;
+    document.getElementById('fc-answer').textContent=flashcards[fcIndex].a;
+    document.getElementById('btn-fc-good').disabled=true; document.getElementById('btn-fc-bad').disabled=true;
+    fcUpdateStats();
+}
+function flipCard(){
+    if(fcDone) return;
+    const c=document.getElementById('fc-card'); c.classList.toggle('flipped');
+    fcFlipped=c.classList.contains('flipped');
+    document.getElementById('btn-fc-good').disabled=!fcFlipped;
+    document.getElementById('btn-fc-bad').disabled=!fcFlipped;
+}
+function gradeCard(ok){
+    if(!fcFlipped||fcDone) return;
+    if(ok){ fcGood++; localStorage.setItem('fc5TotalGood',String(parseInt(localStorage.getItem('fc5TotalGood')||'0',10)+1)); }
+    else { fcBad++; localStorage.setItem('fc5TotalBad',String(parseInt(localStorage.getItem('fc5TotalBad')||'0',10)+1)); }
+    fcIndex++;
+    if(fcIndex<flashcards.length) { fcRenderCard(); } else { fcFinish(); }
+}
+function fcFinish(){
+    fcDone=true;
+    document.getElementById('fc-scene').style.display='none';
+    document.getElementById('fc-controls').style.display='none';
+    const pct=Math.round(fcGood/(fcGood+fcBad)*100);
+    const msg=pct>=80?'🏆 ¡Excelente! Dominas el capítulo 5.':(pct>=60?'💪 ¡Bien! Repasa las que fallaste.':'📚 Repasa Conceptos, Mapa y Errores Comunes.');
+    const s=document.getElementById('fc-summary');
+    s.innerHTML='<strong>📊 Resumen:</strong> ✅ '+fcGood+' • ❌ '+fcBad+' • Precisión <strong>'+pct+'%</strong><br>'+msg;
+    s.classList.add('show'); fcUpdateStats();
+}
+function resetFlashcards(){
+    fcIndex=0; fcGood=0; fcBad=0; fcDone=false;
+    document.getElementById('fc-scene').style.display='block';
+    document.getElementById('fc-controls').style.display='flex';
+    document.getElementById('fc-summary').classList.remove('show');
+    fcRenderCard();
+}
+function borrarHistorial(){ localStorage.removeItem('fc5TotalGood'); localStorage.removeItem('fc5TotalBad'); fcUpdateStats(); }
+
+// ================= HERRAMIENTAS =================
+function supNum(n){ const map={'0':'⁰','1':'¹','2':'²','3':'³','4':'⁴','5':'⁵','6':'⁶','7':'⁷','8':'⁸','9':'⁹','-':'⁻','+':'⁺'}; return String(n).split('').map(c=>map[c]||c).join(''); }
+function fmtKa(x){ if(!isFinite(x)||x<=0) return '≈ 0'; const e=Math.floor(Math.log10(x)); const m=x/Math.pow(10,e); return m.toFixed(1)+'×10'+supNum(e); }
+function convertirPka(){
+    const pka=parseFloat(document.getElementById('pka-input').value);
+    if(isNaN(pka)){ return; }
+    const ka=Math.pow(10,-pka);
+    let clasif;
+    if(ka>100){ clasif='🔥 <strong>ÁCIDO FUERTE</strong> (Ka &gt; 100): disociado casi en su totalidad; su base conjugada es muy débil.'; }
+    else if(ka<1){ clasif='🌱 <strong>ÁCIDO DÉBIL</strong> (Ka &lt; 1): solo parcialmente disociado; su base conjugada es relativamente fuerte.'; }
+    else { clasif='⚡ Ácido moderadamente fuerte (1 &lt; Ka &lt; 100).'; }
+    const pkb=14-pka;
+    const r=document.getElementById('pka-resultado');
+    r.innerHTML='<strong>pKa = '+pka+'</strong> → Ka = <span style="color:#e94560;font-weight:bold;">'+fmtKa(ka)+'</span><br>'+clasif+
+    '<br><strong>Base conjugada:</strong> pKb = 14 − pKa = <strong>'+pkb.toFixed(1)+'</strong> (Kb = '+fmtKa(Math.pow(10,-pkb))+'). '+
+    (pka<7?'Al ser el ácido relativamente fuerte, su base conjugada es débil.':'Al ser el ácido débil, su base conjugada es fuerte (ej. alcóxidos, amidas).')+
+    '<br><em>Recuerda: menor pKa = ácido más fuerte; mayor pKa = base conjugada más fuerte.</em>';
+    r.classList.add('show');
+}
+const paresAcidez = [
+ {a:'Etanol', pkaA:16, b:'Fenol', pkaB:10, txt:'El <strong>fenol</strong> es más ácido: su base conjugada (fenolato) se estabiliza por <strong>resonancia</strong> con la carga deslocalizada en el anillo. Por eso el fenol sí reacciona con NaOH.'},
+ {a:'Fenol', pkaA:10, b:'p‑nitrofenol', pkaB:7.1, txt:'El <strong>p‑nitrofenol</strong> es más ácido: el –NO₂ es <strong>desactivante</strong> (‑I/‑M) que aumenta la carga + sobre el H y estabiliza el fenolato; el efecto es máximo en orto/para.'},
+ {a:'Ácido acético', pkaA:4.76, b:'Ácido cloroacético', pkaB:2.86, txt:'El <strong>cloroacético</strong> es más ácido: el Cl por <strong>efecto inductivo −I</strong> retira densidad y estabiliza el carboxilato. Con 3 Cl (tricloroacético, 0.7) el efecto es máximo.'},
+ {a:'Etanol', pkaA:16, b:'2,2,2‑trifluoroetanol', pkaB:12.4, txt:'El <strong>trifluoroetanol</strong>: los F por −I hacen más positivo al H y estabilizan el alcóxido.'},
+ {a:'Etanol', pkaA:16, b:'Etanotiol', pkaB:10.5, txt:'El <strong>tiol</strong> es más ácido: el <strong>S es mayor que el O</strong> → anión más grande y estable (tamaño del anión, mismo grupo).'},
+ {a:'H₂O', pkaA:15.7, b:'H₂S', pkaB:7.0, txt:'<strong>H₂S</strong>: dentro del mismo grupo la acidez aumenta hacia abajo por el <strong>tamaño del anión</strong>.'},
+ {a:'NH₃', pkaA:38, b:'HF', pkaB:3.2, txt:'<strong>HF</strong>: dentro del mismo período la acidez sigue la <strong>electronegatividad</strong> (CH4 &lt; NH3 &lt; H2O &lt; HF).'},
+ {a:'Etino', pkaA:25, b:'Eteno', pkaB:44, txt:'El <strong>etino</strong> (sp, 50 % s) es más ácido: a mayor <strong>carácter s</strong> de la hibridación, mayor acidez (sp &gt; sp² &gt; sp³).'},
+ {a:'Metanol', pkaA:15.5, b:'tert‑butanol', pkaB:18, txt:'<strong>Metanol</strong>: orden de alcoholes CH3OH &gt; 1° &gt; 2° &gt; 3° (los alquilos +I desestabilizan el alcóxido).'},
+ {a:'Fenol', pkaA:10, b:'p‑cresol', pkaB:10.3, txt:'El <strong>fenol</strong> es más ácido: el CH₃ es <strong>activante débil</strong> que disminuye la acidez, especialmente en orto/para.'}
+];
+function compararPar(){
+    const p=paresAcidez[parseInt(document.getElementById('par-select').value,10)];
+    const r=document.getElementById('par-resultado');
+    r.innerHTML='<strong>'+p.a+'</strong>: pKa <span style="color:#e94560;font-weight:bold;">'+p.pkaA+'</span> &nbsp;|&nbsp; <strong>'+p.b+'</strong>: pKa <span style="color:#e94560;font-weight:bold;">'+p.pkaB+'</span><br><strong>Más ácido: '+(p.pkaA<p.pkaB?p.a:p.b)+' (menor pKa).</strong><br><br>💡 '+p.txt;
+    r.classList.add('show');
+}
+const factorData = {
+ 'acacetico': {f:'CH₃COOH', pka:4.76, fac:'<strong>Resonancia (mesomérico):</strong> el carboxilato tiene dos estructuras resonantes equivalentes → estabilización superior a la del ácido.'},
+ 'tricloro': {f:'CCl₃COOH', pka:0.7, fac:'<strong>Efecto inductivo −I:</strong> tres Cl retiran densidad electrónica y estabilizan el carboxilato; el efecto es aditivo.'},
+ 'fenol': {f:'C₆H₅OH', pka:10, fac:'<strong>Resonancia del fenolato:</strong> carga deslocalizada en el anillo; en el fenol la resonancia genera cargas separadas (menor estabilización).'},
+ 'pnitro': {f:'O₂N‑C₆H₄‑OH', pka:7.1, fac:'<strong>Desactivante −I/−M en para:</strong> el NO₂ estabiliza adicionalmente el fenolato y aumenta la carga + del O–H.'},
+ 'picrico': {f:'2,4,6‑trinitrofenol', pka:0.4, fac:'<strong>Efecto aditivo de tres –NO₂:</strong> ácido relativamente fuerte; la acidez crece con el número de grupos desactivantes.'},
+ 'etanol': {f:'CH₃CH₂OH', pka:16, fac:'<strong>Sin resonancia ni −I:</strong> el alcóxido solo se estabiliza por solvatación; ácido débil que no reacciona con NaOH.'},
+ 'tbutanol': {f:'(CH₃)₃COH', pka:18, fac:'<strong>Efecto +I de tres metilos</strong> y menor solvatación del alcóxido → el alcohol menos ácido de la serie.'},
+ 'tfe': {f:'CF₃CH₂OH', pka:12.4, fac:'<strong>Efecto inductivo −I de los F:</strong> hacen más positivo al H y estabilizan el alcóxido (alcance ≤ 3‑4 enlaces).'},
+ 'etintio': {f:'CH₃CH₂SH', pka:10.5, fac:'<strong>Tamaño del anión:</strong> el S, mayor que el O, diluye la carga negativa del tionolato → más ácido que el alcohol.'},
+ 'etino': {f:'HC≡CH', pka:25, fac:'<strong>Hibridación sp (50 % s):</strong> los electrones del acetiluro quedan en un orbital más interno y estable → H acídico terminal.'}
+};
+function analizarFactor(){
+    const c=factorData[document.getElementById('factor-comp').value];
+    const r=document.getElementById('factor-resultado');
+    r.innerHTML='<strong>'+c.f+'</strong> — pKa <span style="color:#e94560;font-weight:bold;">'+c.pka+'</span><br><strong>Factor dominante:</strong> '+c.fac;
+    r.classList.add('show');
+}
+function renderBarras(tipo){
+    const datos = tipo==='funciones'
+      ? [['HCl',-7],['Ac. acético',4.76],['Fenol',10],['H₂O',15.7],['Etanol',16],['Etino',25],['NH₃',38],['Etano',50]]
+      : [['Fenol',10],['p‑cresol',10.3],['p‑nitrofenol',7.1],['2,4‑dinitrofenol',4.0],['Ác. pícrico',0.4]];
+    const cont=document.getElementById('pk-barras');
+    const min=Math.min.apply(null,datos.map(d=>d[1])), max=Math.max.apply(null,datos.map(d=>d[1]));
+    let html='';
+    datos.forEach(function(d){
+        const h=Math.round((max-d[1])/(max-min)*150)+18;
+        html+='<div class="bar-col"><div class="bar" style="height:'+h+'px;" title="'+d[0]+': pKa '+d[1]+'"></div><div class="bar-label">'+d[0]+'<br>pKa '+d[1]+'</div></div>';
+    });
+    cont.innerHTML=html;
+    const m=document.getElementById('pk-msg');
+    m.innerHTML = tipo==='funciones'
+      ? '📉 Barra más alta = <strong>ácido más fuerte (menor pKa)</strong>. Podio: carboxílicos (3–5) &gt; fenoles (≈10) &gt; alcoholes (15–18); y hacia la derecha, bases conjugadas cada vez más fuertes (etano pKa 50).'
+      : '🎯 Los <strong>‑NO₂ desploman el pKa</strong> del fenol (10 → 0.4, ácido pícrico) por estabilización del fenolato; el CH₃ (activante) lo sube ligeramente (p‑cresol 10.3).';
+    m.classList.add('show');
+}
+
+// ================= QUIZ (base 30, muestra 10 al azar) =================
+const quizBank = [
+ { question:'Según Brönsted‑Lowry, un ácido es una sustancia que:', options:['Acepta H+ en disolución','Cede H+ en disolución','Aporta un par de electrones','Acepta un par de electrones'], correct:1, explanation:'Brönsted‑Lowry: ácido cede protones; base los acepta.' },
+ { question:'¿Cuál de estas sustancias actúa como ÁCIDO sin tener hidrógenos que ceder?', options:['NH3','CH3COOH','AlCl3','H2O'], correct:2, explanation:'AlCl3 es ácido de Lewis: acepta un par de electrones (AlCl3 + :NH3 → Cl3Al‑NH3).' },
+ { question:'Cuando un ácido HA pierde H+, se convierte en:', options:['Su ácido conjugado','Su base conjugada (A-)','Un catión amonio','Un radical libre'], correct:1, explanation:'HA − H+ → A-, su base conjugada; B + H+ → HB+, ácido conjugado.' },
+ { question:'En la reacción BF3 + NH3 → F3B‑NH3, el BF3 actúa como:', options:['Base de Brönsted','Ácido de Lewis (acepta el par de electrones)','Base de Lewis','Ácido de Brönsted'], correct:1, explanation:'El boro completa su octeto aceptando el par libre del N: ácido de Lewis.' },
+ { question:'Si la Ka de un ácido es mayor que 100, el ácido es:', options:['Débil, parcialmente disociado','Fuerte, disociado casi en su totalidad','Neutro','Insoluble en agua'], correct:1, explanation:'Ka > 100 → ácido fuerte; Ka < 1 → débil.' },
+ { question:'El ácido acético (Ka = 1.8×10-5) se clasifica como:', options:['Ácido fuerte','Ácido débil, parcialmente disociado','Base fuerte','Ácido de Lewis'], correct:1, explanation:'Ka < 1: ácido débil, como la mayoría de ácidos orgánicos.' },
+ { question:'El pKa se define como:', options:['log Ka','-log Ka','14 - Ka','Ka·Kb'], correct:1, explanation:'pKa = −log Ka; pKb = −log Kb.' },
+ { question:'Cuanto MÁS BAJO es el pKa de un ácido:', options:['Más débil es el ácido','Más fuerte es el ácido y más débil su base conjugada','Más fuerte es su base conjugada','Mayor es su Kb'], correct:1, explanation:'Menor pKa = ácido más fuerte; su base conjugada resulta más débil.' },
+ { question:'Cuanto más elevado es el pKa de un ácido:', options:['Más fuerte es el ácido','Más fuerte es su base conjugada','Más débil es su base conjugada','Menor es su Kb conjugada'], correct:1, explanation:'Mayor pKa = ácido más débil = base conjugada más fuerte.' },
+ { question:'La relación Ka·Kb = Kw implica que:', options:['Ácido fuerte → base conjugada débil; ácido débil → base conjugada fuerte','Ácido fuerte → base conjugada fuerte','pKa = pKb siempre','Kw depende del ácido'], correct:0, explanation:'Las fuerzas se compensan: es la base del comportamiento de los pares conjugados.' },
+ { question:'Rango de pKa típico de los ácidos carboxílicos, fenoles y alcoholes (en orden):', options:['15-18 / 10 / 3-5','3-5 / ≈10 / 15-18','≈10 / 3-5 / 15-18','0-1 / 5-8 / 10-12'], correct:1, explanation:'Podio de acidez: carboxílicos (3-5) > fenoles (≈10) > alcoholes (15-18).' },
+ { question:'Dentro del mismo PERÍODO, la acidez varía según:', options:['El tamaño atómico','La electronegatividad: CH4 < NH3 < H2O < HF','La hibridación','El número de enlaces π'], correct:1, explanation:'El átomo más electronegativo hace más positivo al H y estabiliza mejor el anión.' },
+ { question:'Dentro del mismo GRUPO, la acidez aumenta hacia abajo porque:', options:['Aumenta la electronegatividad','El anión es mayor y la carga queda más diluida (más estable)','Disminuye la masa atómica','Aumenta el carácter s'], correct:1, explanation:'H2O < H2S y HF < HCl < HBr < HI: el tamaño del anión domina.' },
+ { question:'Orden de acidez según hibridación del carbono:', options:['sp3 > sp2 > sp','sp > sp2 > sp3','sp2 > sp > sp3','No depende de la hibridación'], correct:1, explanation:'A mayor % de orbital s (más interno y menos energético), mayor acidez.' },
+ { question:'¿Cuál de estos compuestos posee un hidrógeno acídico por tener triple enlace terminal?', options:['2‑butino','1‑butino','2‑buteno','Butano'], correct:1, explanation:'Solo el alquino terminal tiene H sobre carbono sp; el interno no.' },
+ { question:'Orden de acidez de los alcoholes:', options:['3° > 2° > 1° > CH3OH','CH3OH > 1° > 2° > 3°','1° = 2° = 3°','2° > 1° > 3° > CH3OH'], correct:1, explanation:'Los grupos alquilo (+I) desestabilizan el alcóxido; la basicidad varía en orden inverso.' },
+ { question:'¿Por qué los alcoholes NO forman alcóxidos con NaOH?', options:['Porque son ácidos fuertes','Porque son ácidos débiles y requieren una base más fuerte (p. ej. Na metálico)','Porque el NaOH es un ácido','Porque no tienen O‑H'], correct:1, explanation:'Mientras más débil el alcohol, base más fuerte se necesita; los fenoles sí reaccionan con NaOH.' },
+ { question:'Los tioles son más ácidos que los alcoholes porque:', options:['El S es más electronegativo que el O','El S tiene mayor tamaño y estabiliza mejor la carga del anión','Forman puentes de H más fuertes','Tienen menor masa'], correct:1, explanation:'Tamaño del anión (mismo grupo): anión mayor = carga diluida = más estable.' },
+ { question:'La mayor acidez de los fenoles respecto a los alcoholes se debe a:', options:['Mayor masa molecular','Estabilización por resonancia del ion fenolato','Puente de hidrógeno intramolecular','Hibridación sp3 del anillo'], correct:1, explanation:'La resonancia deslocaliza la carga del fenolato; en el fenol la resonancia genera cargas separadas (menor efecto).' },
+ { question:'A diferencia de los alcoholes, los fenoles:', options:['No reaccionan con bases','Forman fenolatos directamente con NaOH','Son menos ácidos','Tienen pKa 15-18'], correct:1, explanation:'Ka ≈ 10-10 vs 10-15 a 10-18 de alcoholes: suficiente para reaccionar con NaOH.' },
+ { question:'El grupo nitro en fenoles, en posiciones orto y para:', options:['Disminuye la acidez','Aumenta mucho la acidez (desactivante que estabiliza el anión)','No tiene efecto','Solo actúa por efecto +I'], correct:1, explanation:'Desactivante fuerte: aumenta la carga + sobre el H y estabiliza el fenolato; en orto algo menor por esterismo.' },
+ { question:'El grupo metilo en el anillo del fenol (activante débil):', options:['Aumenta la acidez','Disminuye la acidez, especialmente en orto y para','No modifica el pKa','Lo convierte en ácido fuerte'], correct:1, explanation:'Los activantes disminuyen la acidez; los desactivantes la aumentan.' },
+ { question:'El ácido pícrico es relativamente fuerte porque:', options:['Tiene tres grupos OH','Tiene tres grupos nitro que suman su efecto desactivante','Es un alcohol terciario','Tiene un solo anillo'], correct:1, explanation:'2,4,6‑trinitrofenol: el efecto de los NO2 aumenta con su cantidad (pKa ≈ 0.4).' },
+ { question:'En halofenoles, la acidez varía según la posición como:', options:['para > meta > orto','orto > meta > para (efecto -I)','meta > orto > para','Igual en las tres'], correct:1, explanation:'Su acción desactivante se debe fundamentalmente al efecto −I, que decae con la distancia: orto > meta > para.' },
+ { question:'Los ácidos carboxílicos son más fuertes que los alcoholes porque:', options:['El ion carboxilato tiene estructuras resonantes equivalentes','Tienen mayor masa','Forman puentes de H con el agua','Son apolares'], correct:0, explanation:'La estabilización por resonancia del carboxilato es superior a la del ácido.' },
+ { question:'El efecto inductivo de un sustituyente sobre la acidez alcanza aproximadamente:', options:['Toda la molécula','3, o a lo sumo 4, enlaces de distancia','Solo el enlace vecino','10 enlaces'], correct:1, explanation:'Por eso un Cl en C2 acidifica mucho más que en C4.' },
+ { question:'Al aumentar el tamaño de la cadena carbonada de un ácido carboxílico:', options:['Aumenta la acidez','Disminuye la acidez por aumentar el efecto +I','No cambia','Se vuelve fuerte'], correct:1, explanation:'Cadenas largas = más efecto dador +I = menor acidez.' },
+ { question:'En ácidos aromáticos, un sustituyente en ORTO produce:', options:['Disminución de acidez','Aumento significativo de acidez, sea activante o desactivante (efecto orto/quelato)','Ningún efecto','Solo efecto en el P.E.'], correct:1, explanation:'La formación de puente de hidrógeno/quelato estabiliza al carboxilato en orto.' },
+ { question:'Orden de basicidad de las aminas alifáticas en solución:', options:['1° > 2° > 3°','3° > 2° > 1°','2° > 3° ≈ 1°','Todas iguales'], correct:2, explanation:'Balance entre efecto inductivo (radicales) y solvatación por puentes de H del catión amonio.' },
+ { question:'La anilina es menos básica que una amina alifática porque:', options:['El par del N está deslocalizado en el anillo y al protonarse disminuye la conjugación','Tiene más hidrógenos','Es una amina 3°','No tiene nitrógeno'], correct:0, explanation:'Arylaminas pKb ≈ 9-13: la deslocalización resta disponibilidad del par y desestabiliza el catión arilamonio.' }
+];
+let quizSet=[], qIdx=0, qScore=0, qAnswered=false, cycleDone=false, quizLastSet=[];
+
+function shuffle(a){ for(let i=a.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); const t=a[i]; a[i]=a[j]; a[j]=t; } return a; }
+function overlapCount(sel, old){ const s=new Set(old.map(q=>q.question)); return sel.filter(q=>s.has(q.question)).length; }
+
+function startNewCycle(){
+    let sel, tries=0;
+    do { sel=shuffle(quizBank.slice()).slice(0,10); tries++; }
+    while (quizLastSet.length && overlapCount(sel, quizLastSet) > 4 && tries < 30); // garantiza ≥6 preguntas nuevas
+    quizLastSet=sel;
+    quizSet=sel;
+    qIdx=0; qScore=0; qAnswered=false; cycleDone=false;
+    document.getElementById('quiz-result').style.display='none';
+    document.getElementById('quiz-result').classList.remove('show');
+    renderQuestion(); updateQuizHistory();
+}
+function renderQuestion(){
+    const q=quizSet[qIdx];
+    document.getElementById('q-progress-text').textContent='Pregunta '+(qIdx+1)+' de 10 • Aciertos: '+qScore;
+    document.getElementById('q-bar').style.width=(qIdx/10*100)+'%';
+    let html='<div class="quiz-container"><div class="quiz-question">'+(qIdx+1)+'. '+q.question+'</div><div class="quiz-options">';
+    q.options.forEach(function(o,i){ html+='<button class="quiz-option" onclick="checkQuiz('+i+', this)">'+o+'</button>'; });
+    html+='</div><div id="quiz-feedback" style="display:none;margin-top:1rem;padding:1rem;border-radius:8px;color:#2c3e50;"></div>';
+    html+='<div style="text-align:center;margin-top:1.2rem;"><button id="btn-next" class="calc-button" style="display:none;" onclick="nextQuestion()">'+(qIdx===9?'📊 Ver resultados':'➡️ Siguiente pregunta')+'</button></div></div>';
+    document.getElementById('quiz-container').innerHTML=html;
+    qAnswered=false;
+}
+function checkQuiz(i,btn){
+    if(qAnswered) return; qAnswered=true;
+    const q=quizSet[qIdx];
+    const opts=btn.parentElement.querySelectorAll('.quiz-option');
+    opts.forEach(function(o){ o.disabled=true; });
+    const fb=document.getElementById('quiz-feedback');
+    if(i===q.correct){ btn.classList.add('correct'); qScore++;
+        fb.innerHTML='<span style="color:#2e7d32;font-weight:bold;">✅ ¡Correcto!</span><br>'+q.explanation;
+        fb.style.background='#e8f5e9';
+    } else { btn.classList.add('incorrect'); opts[q.correct].classList.add('correct');
+        fb.innerHTML='<span style="color:#c62828;font-weight:bold;">❌ Incorrecto.</span><br>'+q.explanation;
+        fb.style.background='#ffebee';
+    }
+    fb.style.display='block';
+    document.getElementById('q-progress-text').textContent='Pregunta '+(qIdx+1)+' de 10 • Aciertos: '+qScore;
+    document.getElementById('btn-next').style.display='inline-block';
+}
+function nextQuestion(){ if(qIdx<9){ qIdx++; renderQuestion(); } else { finishCycle(); } }
+function finishCycle(){
+    cycleDone=true;
+    document.getElementById('q-bar').style.width='100%';
+    document.getElementById('quiz-container').innerHTML='';
+    const pct=Math.round(qScore*10);
+    let cycles=parseInt(localStorage.getItem('q5_cycles')||'0',10)+1;
+    const best=Math.max(parseInt(localStorage.getItem('q5_best')||'0',10),pct);
+    const totC=parseInt(localStorage.getItem('q5_totC')||'0',10)+qScore;
+    const totQ=parseInt(localStorage.getItem('q5_totQ')||'0',10)+10;
+    localStorage.setItem('q5_cycles',String(cycles)); localStorage.setItem('q5_best',String(best));
+    localStorage.setItem('q5_totC',String(totC)); localStorage.setItem('q5_totQ',String(totQ));
+    const msg=pct>=80?'🏆 ¡Excelente! Dominas el Capítulo 5.':(pct>=60?'💪 ¡Bien! Repasa los temas fallados en Conceptos y Errores Comunes.':'📚 Necesitas repasar: usa Mapa, Flashcards y Aplicaciones antes del próximo ciclo.');
+    const r=document.getElementById('quiz-result');
+    r.innerHTML='<strong>📊 Resultados del ciclo:</strong> '+qScore+'/10 correctas • <strong style="color:#e94560;">'+pct+'%</strong><br>'+msg+'<br><br>🔄 Pulsa “Reiniciar Quiz” o vuelve a entrar al Quiz para un <strong>nuevo ciclo con preguntas aleatorias</strong>.';
+    r.style.display='block'; r.classList.add('show');
+    document.getElementById('q-progress-text').textContent='Ciclo completado • Aciertos: '+qScore+'/10';
+    updateQuizHistory();
+}
+function updateQuizHistory(){
+    const cycles=parseInt(localStorage.getItem('q5_cycles')||'0',10);
+    const best=parseInt(localStorage.getItem('q5_best')||'0',10);
+    const totC=parseInt(localStorage.getItem('q5_totC')||'0',10);
+    const totQ=parseInt(localStorage.getItem('q5_totQ')||'0',10);
+    document.getElementById('q-history').innerHTML='📈 Ciclos: <strong>'+cycles+'</strong> | Mejor: <strong>'+best+'%</strong> | Promedio histórico: <strong>'+(totQ?Math.round(totC/totQ*100):0)+'%</strong>';
+}
+
+// ================= INICIALIZACIÓN =================
+document.addEventListener('DOMContentLoaded', function(){
+    startNewCycle();   // 10 preguntas al azar al cargar la página
+    fcRenderCard();
+    renderBarras('funciones');
+});
+</script>
+</body>
+</html>
